@@ -1,8 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
-import { useEffect, useState } from 'react';
-import jwtDecode from 'jwt-decode';
+import { useState } from 'react';
+
 import axios from 'axios';
+
+const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
+const API_KEY = process.env.REACT_APP_YTAPI_KEY;
+
+const SCOPES = 'https://www.googleapis.com/auth/youtube.readonly';
 
 /* global google */
 
@@ -16,8 +20,8 @@ function App() {
   }
 
   let client = google.accounts.oauth2.initTokenClient({
-    scope: 'https://www.googleapis.com/auth/youtube.readonly',
-    client_id: '502719142670-nmd9g7usol96fs03av7aq7el692ov8is.apps.googleusercontent.com',
+    scope: SCOPES,
+    client_id: CLIENT_ID,
     ux_mode: 'popup',
     callback: handleCallbackResponse,
   })
@@ -41,7 +45,7 @@ function App() {
     const channelIds = subs.items.map((item) => {
       return item.snippet.resourceId.channelId
     }).map(item => {
-      return axios.get(`https://youtube.googleapis.com/youtube/v3/channelSections?part=snippet%2CcontentDetails&channelId=${item}&key=AIzaSyCeiswJk0KAIrpF6mgJjYKAb0lH_wF9eR0`)
+      return axios.get(`https://youtube.googleapis.com/youtube/v3/channelSections?part=snippet%2CcontentDetails&channelId=${item}&key=${API_KEY}`)
     })
 
     Promise.all(channelIds).then((all) => {
@@ -54,7 +58,7 @@ function App() {
           const oldEntry = { ...addedChannels[x] }
           addedChannels.splice(x, 1)
           Promise.all(channels.map((item) => {
-            return axios.get(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${item}&key=AIzaSyCeiswJk0KAIrpF6mgJjYKAb0lH_wF9eR0`)
+            return axios.get(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet&id=${item}&key=${API_KEY}`)
           })).then((reccomendedChannels) => {
             reccomendedChannels = reccomendedChannels.map((item) => {
               return item.data.items[0]
