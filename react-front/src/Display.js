@@ -83,7 +83,7 @@ export default function Display({ subs, setHovered }) {
             {orderedSubs && orderedSubs.map((item) => {
               return (
                 <SubItem
-                  classname={styles[item.topicDetails.mainCategories[0]]}
+                  classname={styles[item.topicDetails.mainCategories]}
                   subs={item}
                   setHovered={setHovered}
                   hoverToggle={toggleHover}
