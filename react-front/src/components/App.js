@@ -4,6 +4,8 @@ import axios from 'axios';
 import styles from './Display.module.css'
 import Display from './Display';
 
+
+
 /* global google */
 const topics = [
   { id: "/m/04rlf", topic: "Music", parent: true },
@@ -72,6 +74,7 @@ const topics = [
 
 
 function App() {
+
   let api_key = process.env.REACT_APP_api_key
 
   const [auth, setAuth] = useState(null)
