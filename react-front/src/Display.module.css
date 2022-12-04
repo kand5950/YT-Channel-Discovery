@@ -17,6 +17,27 @@
   background-color: blue;
   width: 20%;
 }
+.container .legend header {
+  padding: 5px;
+}
+.container .legend header .toggleUser {
+  float: right;
+}
+.container .legend header .toggleUser .userButton {
+  width: 5px;
+  background-color: white;
+}
+.container .legend header .toggleUser .userButton.on {
+  background-color: green;
+}
+.container .legend header .toggleUser .hoverButton {
+  width: 5px;
+  margin-left: 5px;
+  background-color: white;
+}
+.container .legend header .toggleUser .hoverButton.on {
+  background-color: green;
+}
 .container .legend .subName {
   vertical-align: top;
 }
@@ -26,6 +47,30 @@
   border: 2px solid black;
   background-color: antiquewhite;
   margin: 3%;
+}
+.outerdisplay .reccomended {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
+}
+.outerdisplay .reccomended div {
+  margin: 7px;
+  padding: 3px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  transition: 0.1s;
+}
+.outerdisplay .reccomended div img {
+  cursor: pointer;
+}
+.outerdisplay .reccomended div p {
+  max-height: 20px;
+  max-width: 88px;
+  font-size: 20%;
+  text-align: center;
 }
 
 .display {
@@ -52,29 +97,38 @@
   border: 2px solid black;
 }
 .display .insert {
-  width: 5%;
+  width: 8%;
   margin-top: 40%;
   margin-bottom: 12%;
   border: 2px solid black;
+  text-align: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 10px;
+}
+.display .insert div {
+  margin-top: 5px;
+  background-color: green;
+  padding: 5px;
+  font-size: 80%;
+}
+.display .insert div:hover {
+  cursor: pointer;
+  background-color: wheat;
 }
 .display .subcolumn {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  width: 100%;
   border: 2px solid black;
+  width: 100%;
   height: 100%;
-  margin-left: 0px;
   overflow: scroll;
 }
 .display .subcolumn .subcontainer {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
-}
-.display .subcolumn .subcontainer::after {
-  justify-content: center;
-  content: "";
-  flex: auto;
 }
 .display .subcolumn div {
   margin: 7px;
