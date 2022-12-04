@@ -16,7 +16,8 @@ export default function SubItem({ classname, subs, setHovered, hoverToggle, setT
         }} onClick={() => { setToggleHover(prev => !prev) }}>
             <div className={styles.default}>
                 <img src={thumbnail} alt='' />
-                <p>{title}</p>
+                <p><strong>{title}</strong></p>
+                <p>{subCount > 1000000 ? subCount / 1000000 + 'M' : subCount / 1000 + 'K'}</p>
             </div>
         </div >
     )
