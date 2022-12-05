@@ -35,7 +35,7 @@ const getSubscriptions = (auth, setSubs, topics, api_key) => {
                     results.snippet.resourceId = resourceIds[index]
                     return item.data.items[0]
                 }).map((item) => {
-                    let mainCategories = item.topicDetails?.topicIds.length ? item.topicDetails.topicIds.map((item) => {
+                    let mainCategories = item.topicDetails?.topicIds?.length ? item.topicDetails.topicIds.map((item) => {
                         let topic = topics.find((l) => l.id === item && l.parent)
                         return (
                             topic ? topic.topic : 'none'
