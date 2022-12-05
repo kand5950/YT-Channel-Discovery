@@ -39,14 +39,14 @@ export default function Display({ subs, setHovered }) {
             label: 'My Categories',
             data: [300, 50, 100, 500, 200, 100, 150, 300], //ARRAY OF DATA NEEDS TO GO HERE, follow same key id as categories id
             backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)',
-                'rgb(135, 15, 86)',
-                'rgb(205, 655, 86)',
-                'rgb(125, 205, 86)',
-                'rgb(35, 205, 86)',
-                'rgb(100, 25, 86)',
+                'rgb(255, 0, 0)',
+                'rgb(255, 255, 0)',
+                'rgb(0, 128, 0)',
+                'rgb(207, 37, 190)',
+                'rgb(255, 165, 0)',
+                'rgb(0, 255, 102)',
+                'rgb(193, 193, 193)',
+                'rgb(0, 0, 255)',
             ],
             hoverOffset: 4,
             //link to render filtered categories
