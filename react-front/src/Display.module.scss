@@ -17,19 +17,19 @@
     width: 20%;
     min-width: 20%;
     header {
+      display: flex;
       padding: 5px;
+      justify-content: center;
       .toggleUser {
-        float: right;
         .userButton {
-          width: 5px;
+          width: 7em;
           background-color: white;
           &.on {
             background-color: green;
           }
         }
         .hoverButton {
-          width: 5px;
-          margin-left: 5px;
+          width: 7em;
           background-color: white;
           &.on {
             background-color: green;
@@ -39,6 +39,7 @@
     }
     div{
       .legendSection {
+        margin: 1em;
         word-wrap: break-word;
         img{
           border-radius: 8px;
