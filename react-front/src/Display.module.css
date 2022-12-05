@@ -173,4 +173,13 @@
 }
 .display .Entertainment {
   background-color: orange;
+}
+.display .Technology {
+  background-color: rgb(0, 255, 102);
+}
+.display .Hobby {
+  background-color: rgb(193, 193, 193);
+}
+.display .Sports {
+  background-color: rgb(207, 37, 190);
 }/*# sourceMappingURL=Display.module.css.map */
