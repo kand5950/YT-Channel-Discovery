@@ -38,7 +38,7 @@ const getSubscriptions = (auth, setSubs, topics, api_key) => {
                     let mainCategories = (item.topicDetails?.topicIds?.length ? item.topicDetails.topicIds.map((item) => {
                         let topic = topics.find((l) => l.id === item && l.parent)
                         return (
-                            topic ? topic.topic : 'none'
+                            topic && topic.topic
                         )
                     }) : ['none'])
                         .filter((item) => item)
