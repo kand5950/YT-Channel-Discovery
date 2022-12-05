@@ -10,7 +10,7 @@ export default function SubItem({ classname, subs, setHovered, hoverToggle, setT
     const description = subs.snippet.description
     const categories = subs.topicDetails?.topicIds
     const subscriptions = subs?.subscriptions
-    const reccomendedChannels = subs?.Channels
+    const reccomendedChannels = subs?.channels
 
     return (
         <div className={classname} onMouseOver={() => {
@@ -22,7 +22,7 @@ export default function SubItem({ classname, subs, setHovered, hoverToggle, setT
             <div className={styles.default}>
                 <img src={thumbnail} alt='' />
                 <p><strong>{title}</strong></p>
-                <p>{subCount > 1000000 ? subCount / 1000000 + 'M' : subCount > 1000 && subCount < 1000000 ? subCount / 1000 + 'K' : subCount }</p>
+                <p>{subCount > 1000000 ? subCount / 1000000 + 'M' : subCount > 1000 && subCount < 1000000 ? subCount / 1000 + 'K' : subCount}</p>
             </div>
         </div >
     )

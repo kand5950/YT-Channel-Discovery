@@ -56,7 +56,7 @@ const testGetReccomends = (addedSubs, setSubs, api_key) => {
                     return axios.get(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet&part=statistics&part=topicDetails&id=${item}&key=${api_key}`)
                 })).then((reccomendedChannels) => {
                     reccomendedChannels = reccomendedChannels.map((item) => {
-                        return item.data.items[0]
+                        return item.data.items[0] && item.data.items[0]
                     })
                     addedChannels.push({ ...oldEntry, channels: reccomendedChannels })
                 })
