@@ -17,7 +17,7 @@ export default function SubItem({ classname, subs, setHovered, hoverToggle, setT
             <div className={styles.default}>
                 <img src={thumbnail} alt='' />
                 <p><strong>{title}</strong></p>
-                <p>{subCount > 1000000 ? subCount / 1000000 + 'M' : subCount / 1000 + 'K'}</p>
+                <p>{subCount > 1000000 ? subCount / 1000000 + 'M' : subCount > 1000 && subCount < 1000000 ? subCount / 1000 + 'K' : subCount }</p>
             </div>
         </div >
     )
