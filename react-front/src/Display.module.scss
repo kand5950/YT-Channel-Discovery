@@ -40,6 +40,13 @@
     div{
       .legendSection {
         word-wrap: break-word;
+        img{
+          border-radius: 8px;
+          margin-left: 1em;
+        }
+        span{
+          margin: 1em;
+        }
       }
       .subName {
         vertical-align: top;

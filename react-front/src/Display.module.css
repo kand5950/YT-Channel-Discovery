@@ -42,6 +42,13 @@
 .container .legend div .legendSection {
   word-wrap: break-word;
 }
+.container .legend div .legendSection img {
+  border-radius: 8px;
+  margin-left: 1em;
+}
+.container .legend div .legendSection span {
+  margin: 1em;
+}
 .container .legend div .subName {
   vertical-align: top;
 }

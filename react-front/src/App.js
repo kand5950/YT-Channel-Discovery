@@ -259,15 +259,15 @@ function App() {
                 <span className={styles.subName}>{hovered.title}</span>
                 <div className={styles.subInfo}>
                   <p>{hovered.description}</p>
-                  subscriber count: {hovered.subCount > 1000000 ? hovered.subCount / 1000000 + 'M' : hovered.subCount / 1000 + 'K'}
+                  Subscriber count: {hovered.subCount > 1000000 ? hovered.subCount / 1000000 + 'M' : hovered.subCount / 1000 + 'K'}
                   <hr />
-                  video count: {hovered.videoCount}
-                  <p>categories:</p>
+                  Video count: {hovered.videoCount}
+                  <p>Categories:</p>
                   <div>
                     {hovered.categories.map((item) => {
                       let topic = topics.find((l) => l.id === item)
                       return (
-                        <p>{topic && topic.topic}</p>
+                        <li>{topic && topic.topic}</li>
                       )
                     })}
                   </div>
