@@ -9,7 +9,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function Display({ subs, setHovered }) {
-    const [orderedSubs, setOrderedSubs] = useState(subs && subs);
+    const [orderedSubs, setOrderedSubs] = useState(subs && [...subs]);
     const [toggleHover, setToggleHover] = useState(true);
 
 
