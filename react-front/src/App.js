@@ -125,7 +125,7 @@ function App() {
       {!subs ? <div><div onClick={() => { login(setSubs, topics, api_key, setChannel) }}>hello</div>
         <div onClick={() => { getAllReccomended(subs, setSubs, api_key) }}>
           wow</div></div>
-        : <Home subs={subs} hovered={hovered} setHovered={setHovered} topics={topics} />}
+        : <Home subs={subs} hovered={hovered} setHovered={setHovered} topics={topics} channel={channel} />}
     </div >
   );
 }
