@@ -3,6 +3,7 @@ import styles from './Display.module.css'
 
 export default function Home({ subs, hovered, setHovered, topics, channel }) {
 
+
     return (
         <>
             {/* <div>
@@ -18,16 +19,16 @@ export default function Home({ subs, hovered, setHovered, topics, channel }) {
             <div className={styles.dashboard}>
                 <div className={styles.legend}>
                     <div>
-                        <header> HEADER <span className={styles.toggleUser}><span
+                        <header><span className={styles.toggleUser}><button
                             className={hovered.hovering ? `${styles.userButton} ${styles.on}`
                                 : styles.userButton}
                             onClick={() => { if (hovered.thumbnail) setHovered(prev => ({ ...prev, hovering: true })) }}>
-                            your information
-                        </span>
-                            <span className={!hovered.hovering ? `${styles.hoverButton} ${styles.on}`
+                            Sub Info
+                        </button>
+                            <button className={!hovered.hovering ? `${styles.hoverButton} ${styles.on}`
                                 : styles.hoverButton}
                                 onClick={() => { setHovered(prev => ({ ...prev, hovering: false })) }}
-                            >hover</span>
+                            >User Info</button>
                         </span>
                         </header>
                         {hovered.hovering ?
@@ -36,7 +37,7 @@ export default function Home({ subs, hovered, setHovered, topics, channel }) {
                                 <span className={styles.subName}>{hovered.title}</span>
                                 <div className={styles.subInfo}>
                                     <p>{hovered.description}</p>
-                                    Subscriber count: {hovered.subCount > 1000000 ? hovered.subCount / 1000000 + 'M' : hovered.subCount / 1000 + 'K'}
+                                    Subscriber count: {hovered.subCount > 1000000 ? hovered.subCount / 1000000 + 'M' : hovered.subCount > 1000 && hovered.subCount < 1000000 ? hovered.subCount / 1000 + 'K' : hovered.subCount}
                                     <hr />
                                     Video count: {hovered.videoCount}
                                     <p>Categories:</p>
@@ -77,10 +78,20 @@ export default function Home({ subs, hovered, setHovered, topics, channel }) {
                                     </div>
                                 </div>
                             </div> :
-                            <div>
-                                <div>
-                                    {channel.snippet.title}
+                            <div className={styles.legendSection}>
+
+                                <img src={channel.snippet.thumbnails.default.url} alt='' />
+                                <span className={styles.subName}>{channel.snippet.localized.title}</span>
+                                <div className={styles.subInfo}>
+                                    <p>{channel.snippet.localized.description}</p>
+                                    Subscriber count: {channel.statistics.subscriberCount > 1000000 ? channel.statistics.subscriberCount / 1000000 + 'M' : channel.statistics.subscriberCount > 1000 && channel.statistics.subscriberCount < 1000000 ? channel.statistics.subscriberCount / 1000 + 'K' : channel.statistics.subscriberCount}
+                                    <hr />
+                                    <li>{channel.statistics.videoCount} videos</li>
+                                    <li>{channel.statistics.viewCount} views</li>
+
+
                                 </div>
+
                             </div>
                         }
                     </div>

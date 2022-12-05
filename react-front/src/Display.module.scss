@@ -18,19 +18,19 @@
     min-width: 20%;
     overflow: scroll;
     header {
+      display: flex;
       padding: 5px;
+      justify-content: center;
       .toggleUser {
-        float: right;
         .userButton {
-          width: 5px;
+          width: 7em;
           background-color: white;
           &.on {
             background-color: green;
           }
         }
         .hoverButton {
-          width: 5px;
-          margin-left: 5px;
+          width: 7em;
           background-color: white;
           &.on {
             background-color: green;

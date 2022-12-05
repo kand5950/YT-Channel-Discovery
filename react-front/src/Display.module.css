@@ -20,21 +20,19 @@
   overflow: scroll;
 }
 .container .legend header {
+  display: flex;
   padding: 5px;
-}
-.container .legend header .toggleUser {
-  float: right;
+  justify-content: center;
 }
 .container .legend header .toggleUser .userButton {
-  width: 5px;
+  width: 7em;
   background-color: white;
 }
 .container .legend header .toggleUser .userButton.on {
   background-color: green;
 }
 .container .legend header .toggleUser .hoverButton {
-  width: 5px;
-  margin-left: 5px;
+  width: 7em;
   background-color: white;
 }
 .container .legend header .toggleUser .hoverButton.on {
