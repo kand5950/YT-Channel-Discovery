@@ -2,9 +2,9 @@ import './App.css';
 import { useState } from 'react';
 import axios from 'axios';
 import styles from './Display.module.css'
-import Display from './Display';
-
-
+import Home from './Home';
+import login from './Api/login';
+import getAllReccomended from './Api/getReccomended';
 
 /* global google */
 const topics = [
@@ -82,207 +82,112 @@ function App() {
   const [reccomended, setReccomendeded] = useState(null)
   const [hovered, setHovered] = useState({ hovering: false })
 
-  const handleCallbackResponse = (response) => {
-    setAuth(response.access_token)
-  }
+  // const testGetSUBS = () => {
+  //   let addedChannels = [...subs]
 
-  let client = google.accounts.oauth2.initTokenClient({
-    scope: 'https://www.googleapis.com/auth/youtube.readonly',
-    client_id: process.env.REACT_APP_client_id,
-    ux_mode: 'popup',
-    callback: handleCallbackResponse,
-  })
-  const doAuth = () => {
-    const getCode = () => {
-      client.requestAccessToken()
-    }
-    getCode()
-  }
-  const getSubscriptions = () => {
-    axios.get(`https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet&mine=true&maxResults=200&access_token=${auth}`)
-      .then((data) => {
-        let resourceIds = data.data.items.map((item) => {
-          return item.snippet.resourceId
-        })
-        Promise.all(data.data.items.map((item) => {
-          let id = item.snippet.resourceId.channelId
-          return axios.get(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet&part=statistics&part=topicDetails&id=${id}&key=${api_key}`)
-        })).then((all) => {
-          const subs = all.map((item, index) => {
-            let results = item.data.items[0]
-            results.snippet.resourceId = resourceIds[index]
-            return item.data.items[0]
-          }).map((item) => {
-            let mainCategories = item.topicDetails.topicIds.map((item) => {
-              let topic = topics.find((l) => l.id === item && l.parent)
-              return (
-                topic && topic.topic
-              )
-            }).filter((item) => item)
-            return { ...item, topicDetails: { mainCategories, ...item.topicDetails } }
-          })
-          setSubs(prev => subs)
-        })
-      }).catch((error) => {
-        console.log(error)
-      })
-  }
-  const testGetSUBS = () => {
-    let addedChannels = [...subs]
+  //   for (let i = 0; i < addedChannels.length; i++) {
+  //     let id = addedChannels[i].snippet.resourceId.channelId
+  //     const oldEntry = { ...addedChannels[i] }
+  //     axios.get(`https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet&channelId=${id}&maxResults=200&key=${api_key}`)
+  //       .then((data) => {
+  //         Promise.all(data.data.items.map(item => {
+  //           let id = item.snippet.resourceId.channelId
+  //           return axios.get(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet&part=statistics&part=topicDetails&id=${id}&key=${api_key}`)
+  //         })).then((all) => {
+  //           const subsWithStatsandCat = all.map(item => {
+  //             return item.data.items[0]
+  //           })
+  //           addedChannels.splice(i, 1, { ...oldEntry, subscriptions: subsWithStatsandCat })
+  //         })
+  //       }).catch(() => {
+  //         addedChannels.splice(i, 1, { ...oldEntry })
+  //       })
+  //   }
+  //   setTimeout(() => {
+  //     reSetSubs(addedChannels)
+  //   }, 2000)
+  // }
 
-    for (let i = 0; i < addedChannels.length; i++) {
-      let id = addedChannels[i].snippet.resourceId.channelId
-      const oldEntry = { ...addedChannels[i] }
-      axios.get(`https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet&channelId=${id}&maxResults=200&key=${api_key}`)
-        .then((data) => {
-          Promise.all(data.data.items.map(item => {
-            let id = item.snippet.resourceId.channelId
-            return axios.get(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet&part=statistics&part=topicDetails&id=${id}&key=${api_key}`)
-          })).then((all) => {
-            const subsWithStatsandCat = all.map(item => {
-              return item.data.items[0]
-            })
-            addedChannels.splice(i, 1, { ...oldEntry, subscriptions: subsWithStatsandCat })
-          })
-        }).catch(() => {
-          addedChannels.splice(i, 1, { ...oldEntry })
-        })
-    }
-    setTimeout(() => {
-      reSetSubs(addedChannels)
-    }, 2000)
-  }
+  // const testGetReccomends = () => {
+  //   let addedChannels = [...subs]
 
-  const testGetReccomends = () => {
-    let addedChannels = [...subs]
+  //   const channelIds = subs.map((item) => {
+  //     return item.snippet.resourceId.channelId
+  //   })
 
-    const channelIds = subs.map((item) => {
-      return item.snippet.resourceId.channelId
-    })
+  //   Promise.all(channelIds.map(item => {
+  //     return axios.get(`https://youtube.googleapis.com/youtube/v3/channelSections?part=snippet%2CcontentDetails&channelId=${item}&key=${api_key}`)
+  //   })).then((all) => {
+  //     let x = 0
+  //     for (let i = 0; i < all.length; i++) {
+  //       let channels = all[i].data.items.find((item => item.contentDetails?.channels))?.contentDetails?.channels
 
-    Promise.all(channelIds.map(item => {
-      return axios.get(`https://youtube.googleapis.com/youtube/v3/channelSections?part=snippet%2CcontentDetails&channelId=${item}&key=${api_key}`)
-    })).then((all) => {
-      let x = 0
-      for (let i = 0; i < all.length; i++) {
-        let channels = all[i].data.items.find((item => item.contentDetails?.channels))?.contentDetails?.channels
+  //       if (channels) {
+  //         // addedChannels.findIndex((ind) => ind.snippet.resourceId.channelId === all[i].data.items)
+  //         const oldEntry = { ...addedChannels[x] }
+  //         addedChannels.splice(x, 1)
+  //         Promise.all(channels.map((item) => {
+  //           return axios.get(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet&part=statistics&part=topicDetails&id=${item}&key=${api_key}`)
+  //         })).then((reccomendedChannels) => {
+  //           reccomendedChannels = reccomendedChannels.map((item) => {
+  //             return item.data.items[0]
+  //           })
+  //           addedChannels.push({ ...oldEntry, channels: reccomendedChannels })
+  //         })
+  //       } else {
+  //         x++
+  //       }
+  //     }
+  //     setTimeout(() => {
+  //       reSetSubs(addedChannels)
+  //     }, 2000)
+  //   })
+  // }
 
-        if (channels) {
-          // addedChannels.findIndex((ind) => ind.snippet.resourceId.channelId === all[i].data.items)
-          const oldEntry = { ...addedChannels[x] }
-          addedChannels.splice(x, 1)
-          Promise.all(channels.map((item) => {
-            return axios.get(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet&part=statistics&part=topicDetails&id=${item}&key=${api_key}`)
-          })).then((reccomendedChannels) => {
-            reccomendedChannels = reccomendedChannels.map((item) => {
-              return item.data.items[0]
-            })
-            addedChannels.push({ ...oldEntry, channels: reccomendedChannels })
-          })
-        } else {
-          x++
-        }
-      }
-      setTimeout(() => {
-        reSetSubs(addedChannels)
-      }, 2000)
-    })
-  }
-  const reSetSubs = (addedChannels) => {
-    setSubs([...addedChannels])
-  }
 
-  const getAllReccomended = () => {
-    let subscriptions = subs.filter(item => item.subscriptions).map((item) => {
-      item.subscriptions.map((chnl) => chnl.snippet.from = item.snippet.title)
-      return [...item.subscriptions]
-    })
-    let channels = subs.filter(item => item.channels).map((item) => {
-      item.channels.map((chnl) => chnl.snippet.from = item.snippet.title)
-      return [...item.channels]
-    })
-    setReccomendeded([].concat(...subscriptions, ...channels))
-  }
+  // const getAllReccomended = () => {
+  //   let subscriptions = subs.filter(item => item.subscriptions).map((item) => {
+  //     item.subscriptions.map((chnl) => chnl.snippet.from = item.snippet.title)
+  //     return [...item.subscriptions]
+  //   })
+  //   let channels = subs.filter(item => item.channels).map((item) => {
+  //     item.channels.map((chnl) => chnl.snippet.from = item.snippet.title)
+  //     return [...item.channels]
+  //   })
+  //   setReccomendeded([].concat(...subscriptions, ...channels))
+  // }
 
-  const orderBySubs = () => {
-    setReccomendeded(prev => {
-      return [...prev.sort((a, b) => b.statistics.subscriberCount - a.statistics.subscriberCount)]
-    })
-  }
-  const orderByCount = () => {
-    setReccomendeded(prev => {
-      let count = {}
-      for (let i = 0; i < prev.length; i++) {
-        let title = prev[i].snippet.title
-        count[title] = (count[title] || 0) + 1
-        if (count[title] > 1) {
-          let index = prev.findIndex(item => item.snippet.title === title)
-          prev[index].count = count[title]
-          prev.splice(i, 1)
-        }
-      }
-      return [...prev.sort((a, b) => (b?.count || 0) - (a?.count || 0))]
-    })
-  }
+  // const reSetSubs = (addedChannels) => {
+  //   setSubs([...addedChannels])
+  // }
+  // const orderBySubs = () => {
+  //   setReccomendeded(prev => {
+  //     return [...prev.sort((a, b) => b.statistics.subscriberCount - a.statistics.subscriberCount)]
+  //   })
+  // }
+  // const orderByCount = () => {
+  //   setReccomendeded(prev => {
+  //     let count = {}
+  //     for (let i = 0; i < prev.length; i++) {
+  //       let title = prev[i].snippet.title
+  //       count[title] = (count[title] || 0) + 1
+  //       if (count[title] > 1) {
+  //         let index = prev.findIndex(item => item.snippet.title === title)
+  //         prev[index].count = count[title]
+  //         prev.splice(i, 1)
+  //       }
+  //     }
+  //     return [...prev.sort((a, b) => (b?.count || 0) - (a?.count || 0))]
+  //   })
+  // }
 
   return (
     <div className={styles.container}>
-      hello
-      <div>
-        <button onClick={doAuth}>AUTH</button>
-        <button onClick={getSubscriptions}>SUBS</button>
-        <button onClick={testGetReccomends}>RECCO</button>
-        <button onClick={testGetSUBS}>TESTSUBS</button>
-        <button onClick={getAllReccomended}>GET ALL RECCOMENDED</button>
-        <button onClick={orderBySubs}>ORDER BY SUBCOUNT </button>
-        <button onClick={orderByCount}>ORDER BY COUNT </button>
-        <button onClick={() => console.log(subs, reccomended, hovered)}>print subs</button>
-      </div>
-      <div className={styles.dashboard}>
-        <div className={styles.legend}>
-          <div>
-            <header> HEADER <span className={styles.toggleUser}><span
-              className={hovered.hovering ? `${styles.userButton} ${styles.on}`
-                : styles.userButton}
-              onClick={() => { if (hovered.thumbnail) setHovered(prev => ({ ...prev, hovering: true })) }}>
-              your information
-            </span>
-              <span className={!hovered.hovering ? `${styles.hoverButton} ${styles.on}`
-                : styles.hoverButton}
-                onClick={() => { setHovered(prev => ({ ...prev, hovering: false })) }}
-              >hover</span>
-            </span>
-            </header>
-            {hovered.hovering ?
-              <div>
-                <img src={hovered.thumbnail} alt='' />
-                <span className={styles.subName}>{hovered.title}</span>
-                <div className={styles.subInfo}>
-                  <p>{hovered.description}</p>
-                  subscriber count: {hovered.subCount > 1000000 ? hovered.subCount / 1000000 + 'M' : hovered.subCount / 1000 + 'K'}
-                  <hr />
-                  video count: {hovered.videoCount}
-                  <p>categories:</p>
-                  <div>
-                    {hovered.categories.map((item) => {
-                      let topic = topics.find((l) => l.id === item)
-                      return (
-                        <p>{topic && topic.topic}</p>
-                      )
-                    })}
-                  </div>
-                </div>
-              </div> :
-              <div>
-                <div>
-                  PLACEHOLDER USER INFORMATION
-                </div>
-              </div>
-            }
-          </div>
-        </div>
-        <Display subs={subs} setHovered={setHovered} />
-      </div>
+      <button onClick={() => console.log(subs, reccomended, hovered)}>print subs</button>
+      {!subs ? <div><div onClick={() => { login(setSubs, topics, api_key) }}>hello</div>
+        <div onClick={() => { getAllReccomended(subs, setSubs, api_key) }}>
+          wow</div></div>
+        : <Home subs={subs} hovered={hovered} setHovered={setHovered} topics={topics} />}
     </div >
   );
 }
