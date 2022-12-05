@@ -13,8 +13,9 @@
   }
   .legend {
     margin: 1%;
-    background-color: blue;
+    background-color: antiquewhite;
     width: 20%;
+    min-width: 20%;
     header {
       padding: 5px;
       .toggleUser {
@@ -36,9 +37,15 @@
         }
       }
     }
-    .subName {
-      vertical-align: top;
+    div{
+      .legendSection {
+        word-wrap: break-word;
+      }
+      .subName {
+        vertical-align: top;
+      }
     }
+    
   }
 }
 .outerdisplay {

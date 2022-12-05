@@ -14,8 +14,9 @@
 }
 .container .legend {
   margin: 1%;
-  background-color: blue;
+  background-color: antiquewhite;
   width: 20%;
+  min-width: 20%;
 }
 .container .legend header {
   padding: 5px;
@@ -38,7 +39,10 @@
 .container .legend header .toggleUser .hoverButton.on {
   background-color: green;
 }
-.container .legend .subName {
+.container .legend div .legendSection {
+  word-wrap: break-word;
+}
+.container .legend div .subName {
   vertical-align: top;
 }
 

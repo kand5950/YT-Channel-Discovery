@@ -254,7 +254,7 @@ function App() {
             </span>
             </header>
             {hovered.hovering ?
-              <div>
+              <div className={styles.legendSection}>
                 <img src={hovered.thumbnail} alt='' />
                 <span className={styles.subName}>{hovered.title}</span>
                 <div className={styles.subInfo}>
