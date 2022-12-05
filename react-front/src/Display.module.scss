@@ -37,14 +37,14 @@
         }
       }
     }
-    div{
+    div {
       .legendSection {
         word-wrap: break-word;
-        img{
+        img {
           border-radius: 8px;
           margin-left: 1em;
         }
-        span{
+        span {
           margin: 1em;
         }
       }
@@ -52,7 +52,6 @@
         vertical-align: top;
       }
     }
-    
   }
 }
 .outerdisplay {
@@ -98,6 +97,7 @@
     .chart {
       height: 50vh;
       width: 280px;
+      margin: 10px;
     }
     .user {
       height: 50vh;

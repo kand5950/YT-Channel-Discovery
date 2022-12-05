@@ -101,6 +101,7 @@
 .display .usercolumn .chart {
   height: 50vh;
   width: 280px;
+  margin: 10px;
 }
 .display .usercolumn .user {
   height: 50vh;

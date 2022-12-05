@@ -3,8 +3,6 @@ import axios from "axios"
 /* global google */
 
 const login = (setSubs, topics, api_key) => {
-    console.log('hello')
-
     const handleCallbackResponse = (response) => {
         getSubscriptions(response.access_token, setSubs, topics, api_key)
     }

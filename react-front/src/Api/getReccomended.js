@@ -1,5 +1,8 @@
 import axios from "axios"
 
+
+
+
 const testGetSUBS = (subs, setSubs, api_key) => {
     let addedChannels = [...subs]
 
@@ -21,14 +24,20 @@ const testGetSUBS = (subs, setSubs, api_key) => {
                 addedChannels.splice(i, 1, { ...oldEntry })
             })
     }
-    setSubs(addedChannels)
-    testGetReccomends(subs, setSubs, api_key)
+    function wait(callback) {
+        if (addedChannels.find(item => item.subscriptions)) {
+            callback()
+        } else {
+            setTimeout(() => {
+                wait(callback)
+            }, 2000)
+        }
+    }
+    wait(() => testGetReccomends(addedChannels, setSubs, api_key))
 }
 
 const testGetReccomends = (addedSubs, setSubs, api_key) => {
     let addedChannels = [...addedSubs]
-    console.log(addedSubs, addedChannels)
-
     const channelIds = addedSubs.map((item) => {
         return item.snippet.resourceId.channelId
     })
@@ -55,7 +64,16 @@ const testGetReccomends = (addedSubs, setSubs, api_key) => {
                 x++
             }
         }
-        setSubs(addedChannels)
+        function wait(callback) {
+            if (addedChannels.find(item => item.channels)) {
+                callback()
+            } else {
+                setTimeout(() => {
+                    wait(callback)
+                }, 2000)
+            }
+        }
+        wait(() => setSubs(addedChannels))
     })
 }
 
