@@ -27,10 +27,10 @@ export default function Display({ subs, setHovered }) {
     const data = {
         labels: [
             'Music',
-            'Gaming',
+            'Entertainment',
             'Lifestyle',
             'Sports',
-            'Entertainment',
+            'Gaming',
             'Technology',
             'Hobby',
             'Society'
@@ -40,10 +40,10 @@ export default function Display({ subs, setHovered }) {
             data: [300, 50, 100, 500, 200, 100, 150, 300], //ARRAY OF DATA NEEDS TO GO HERE, follow same key id as categories id
             backgroundColor: [
                 'rgb(255, 0, 0)',
-                'rgb(255, 255, 0)',
+                'rgb(255, 165, 0)',
                 'rgb(0, 128, 0)',
                 'rgb(207, 37, 190)',
-                'rgb(255, 165, 0)',
+                'rgb(255, 255, 0)',
                 'rgb(0, 255, 102)',
                 'rgb(193, 193, 193)',
                 'rgb(0, 0, 255)',
@@ -63,10 +63,15 @@ export default function Display({ subs, setHovered }) {
                         <Pie
                             options={{
                                 plugins: {
-                                    legend: {
-                                        position: 'top',
+                                    legend: { 
+                                        position: 'bottom',
+                                        align: 'start',
                                         labels: {
                                             usePointStyle: true,
+                                            boxWidth: 20,
+                                            padding: 20,
+                                            textAlign: ''
+
                                         }
                                     }
                                 }
