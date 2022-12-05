@@ -23,63 +23,22 @@ export default function Display({ subs, setHovered }) {
       console.log(data.datasets[datasetIndexNum].link[dataPoint]);
     }
   };
-
-  const findGaming = (subs) => {
-    const gaming = subs.map(sub => sub.topicDetails.mainCategories[0] === "Gaming")
-    const count = gaming.filter(Boolean).length;
+  
+  const countCategories = () => {
+    let categories = [];
+    for (let i = 0; i < subs.length; i++) {
+      const allSubsValues = Object.values(subs[i].topicDetails.mainCategories);
+      categories.push(allSubsValues);
+    }
+    const count = categories.flat().reduce((acc, curr) => (acc[curr] = (acc[curr] || 0) + 1, acc), {});
     return count
-  }
- 
-  const findLifestyle = (subs) => {
-    const gaming = subs.map(sub => sub.topicDetails.mainCategories[0] === "Lifestyle")
-    const count = gaming.filter(Boolean).length;
-    return count
-  }
-    const findMusic = (subs) => {
-    const gaming = subs.map(sub => sub.topicDetails.mainCategories[0] === "Music")
-    const count = gaming.filter(Boolean).length;
-    return count
-  }
-  const findEntertainment = (subs) => {
-    const gaming = subs.map(sub => sub.topicDetails.mainCategories[0] === "Entertainment")
-    const count = gaming.filter(Boolean).length;
-    return count
-  }
-  const findSports = (subs) => {
-    const gaming = subs.map(sub => sub.topicDetails.mainCategories[0] === "Sports")
-    const count = gaming.filter(Boolean).length;
-    return count
-  }
-  const findTechnology = (subs) => {
-    const gaming = subs.map(sub => sub.topicDetails.mainCategories[0] === "Technology")
-    const count = gaming.filter(Boolean).length;
-    return count
-  }
-  const findHobby = (subs) => {
-    const gaming = subs.map(sub => sub.topicDetails.mainCategories[0] === "Hobby")
-    const count = gaming.filter(Boolean).length;
-    return count
-  }
-  const findSociety = (subs) => {
-    const gaming = subs.map(sub => sub.topicDetails.mainCategories[0] === "Society")
-    const count = gaming.filter(Boolean).length;
-    return count
-  }
+  };
 
   const data = {
-    labels: [
-      'Music',
-      'Entertainment',
-      'Lifestyle',
-      'Sports',
-      'Gaming',
-      'Technology',
-      'Hobby',
-      'Society'
-    ],
+    labels: Object.keys(countCategories(subs)),
     datasets: [{
       label: 'My Categories',
-      data: [findMusic(subs), findEntertainment(subs), findLifestyle(subs), findSports(subs), findGaming(subs), findTechnology(subs), findHobby(subs), findSociety(subs)], //ARRAY OF DATA NEEDS TO GO HERE, follow same key id as categories id
+      data: Object.values(countCategories(subs)), //ARRAY OF DATA NEEDS TO GO HERE, follow same key id as categories id
       backgroundColor: [
         'rgb(255, 0, 0)',
         'rgb(255, 165, 0)',
@@ -92,7 +51,7 @@ export default function Display({ subs, setHovered }) {
       ],
       hoverOffset: 4,
       //link to render filtered categories
-      link: ['link', 'link2', 'link3', 'link4', 'link5', 'link6', 'link7', 'link8'],
+      link: ['link3', 'link2', `{sortLifestyle(subs)}`, 'link4', 'link5', 'link6', 'link7', 'link8'],
     }],
 
   };
