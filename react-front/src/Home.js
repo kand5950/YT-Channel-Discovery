@@ -56,7 +56,7 @@ export default function Home({ subs, hovered, setHovered, topics, channel }) {
                                                 {hovered.subscriptions.map((item) => {
                                                     return (
                                                         <div className={styles.channel}>
-                                                            <img src={item.snippet.thumbnails.default.url} alt='' />
+                                                            <img src={item.snippet?.thumbnails?.default?.url} alt='' />
                                                             <p>{item.snippet.title}</p>
                                                         </div>
                                                     )
@@ -68,7 +68,7 @@ export default function Home({ subs, hovered, setHovered, topics, channel }) {
                                                 {hovered.reccomendedChannels.map((item) => {
                                                     return (
                                                         <div className={styles.channel}>
-                                                            <img src={item.snippet.thumbnails.default.url} alt='' />
+                                                            <img src={item.snippet?.thumbnails?.default?.url} alt='' />
                                                             <p>{item.snippet.title}</p>
                                                         </div>
                                                     )
