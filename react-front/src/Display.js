@@ -25,6 +25,7 @@ export default function Display({ subs, setHovered, reccomendedOrder, reccomende
       // console.log(event.target.value)
       // console.log(event)
     }
+  }   
 
   const countCategories = () => {
     let categories = [];
