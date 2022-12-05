@@ -1,7 +1,7 @@
 import Display from "./Display"
 import styles from './Display.module.css'
 
-export default function Home({ subs, hovered, setHovered, topics }) {
+export default function Home({ subs, hovered, setHovered, topics, channel }) {
 
     return (
         <>
@@ -52,7 +52,7 @@ export default function Home({ subs, hovered, setHovered, topics }) {
                         </div> :
                             <div>
                                 <div>
-                                    PLACEHOLDER USER INFORMATION
+                                    {channel.snippet.title}
                                 </div>
                             </div>
                         }
