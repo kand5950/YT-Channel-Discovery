@@ -37,7 +37,7 @@ export default function Home({ subs, hovered, setHovered, topics, channel }) {
                             <span className={styles.subName}>{hovered.title}</span>
                                 <div className={styles.subInfo}>
                                     <p>{hovered.description}</p>
-                                    Subscriber count: {hovered.subCount > 1000000 ? hovered.subCount / 1000000 + 'M' : hovered.subCount / 1000 + 'K'}
+                                    Subscriber count: {hovered.subCount > 1000000 ? hovered.subCount / 1000000 + 'M' : hovered.subCount > 1000 && hovered.subCount < 1000000 ? hovered.subCount / 1000 + 'K' : hovered.subCount }
                                     <hr />
                                     Video count: {hovered.videoCount}
                                     <p>Categories:</p>
@@ -57,7 +57,7 @@ export default function Home({ subs, hovered, setHovered, topics, channel }) {
                                 <span className={styles.subName}>{channel.snippet.localized.title}</span>
                                     <div className={styles.subInfo}>
                                         <p>{channel.snippet.localized.description}</p>
-                                        Subscriber count: {channel.statistics.subscriberCount > 1000000 ? channel.statistics.subscriberCount / 1000000 + 'M' : channel.statistics.subscriberCount / 1000 + 'K'}
+                                        Subscriber count: {channel.statistics.subscriberCount > 1000000 ? channel.statistics.subscriberCount / 1000000 + 'M' : channel.statistics.subscriberCount > 1000 && channel.statistics.subscriberCount < 1000000 ? channel.statistics.subscriberCount/ 1000 + 'K' : channel.statistics.subscriberCount }
                                         <hr />
                                         <li>{channel.statistics.videoCount} videos</li>
                                         <li>{channel.statistics.viewCount} views</li>
