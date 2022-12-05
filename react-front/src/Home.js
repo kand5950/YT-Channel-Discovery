@@ -57,7 +57,7 @@ export default function Home({ subs, hovered, setHovered, topics, channel }) {
                                                     return (
                                                         <div className={styles.channel}>
                                                             <img src={item.snippet?.thumbnails?.default?.url} alt='' />
-                                                            <p>{item.snippet.title}</p>
+                                                            <p>{item.snippet?.title}</p>
                                                         </div>
                                                     )
                                                 })}
@@ -69,7 +69,7 @@ export default function Home({ subs, hovered, setHovered, topics, channel }) {
                                                     return (
                                                         <div className={styles.channel}>
                                                             <img src={item.snippet?.thumbnails?.default?.url} alt='' />
-                                                            <p>{item.snippet.title}</p>
+                                                            <p>{item.snippet?.title}</p>
                                                         </div>
                                                     )
                                                 })}
