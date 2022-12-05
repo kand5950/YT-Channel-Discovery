@@ -24,6 +24,48 @@ export default function Display({ subs, setHovered }) {
         }
     };
 
+    const findGaming = (subs) => {
+        const gaming = subs.map(sub => sub.topicDetails.mainCategories[0] === "Gaming")
+        const count = gaming.filter(Boolean).length;
+        return count
+    }
+
+    const findLifestyle = (subs) => {
+        const gaming = subs.map(sub => sub.topicDetails.mainCategories[0] === "Lifestyle")
+        const count = gaming.filter(Boolean).length;
+        return count
+    }
+    const findMusic = (subs) => {
+        const gaming = subs.map(sub => sub.topicDetails.mainCategories[0] === "Music")
+        const count = gaming.filter(Boolean).length;
+        return count
+    }
+    const findEntertainment = (subs) => {
+        const gaming = subs.map(sub => sub.topicDetails.mainCategories[0] === "Entertainment")
+        const count = gaming.filter(Boolean).length;
+        return count
+    }
+    const findSports = (subs) => {
+        const gaming = subs.map(sub => sub.topicDetails.mainCategories[0] === "Sports")
+        const count = gaming.filter(Boolean).length;
+        return count
+    }
+    const findTechnology = (subs) => {
+        const gaming = subs.map(sub => sub.topicDetails.mainCategories[0] === "Technology")
+        const count = gaming.filter(Boolean).length;
+        return count
+    }
+    const findHobby = (subs) => {
+        const gaming = subs.map(sub => sub.topicDetails.mainCategories[0] === "Hobby")
+        const count = gaming.filter(Boolean).length;
+        return count
+    }
+    const findSociety = (subs) => {
+        const gaming = subs.map(sub => sub.topicDetails.mainCategories[0] === "Society")
+        const count = gaming.filter(Boolean).length;
+        return count
+    }
+
     const data = {
         labels: [
             'Music',
@@ -37,7 +79,7 @@ export default function Display({ subs, setHovered }) {
         ],
         datasets: [{
             label: 'My Categories',
-            data: [300, 50, 100, 500, 200, 100, 150, 300], //ARRAY OF DATA NEEDS TO GO HERE, follow same key id as categories id
+            data: [findMusic(subs), findEntertainment(subs), findLifestyle(subs), findSports(subs), findGaming(subs), findTechnology(subs), findHobby(subs), findSociety(subs)], //ARRAY OF DATA NEEDS TO GO HERE, follow same key id as categories id
             backgroundColor: [
                 'rgb(255, 0, 0)',
                 'rgb(255, 165, 0)',
@@ -63,7 +105,7 @@ export default function Display({ subs, setHovered }) {
                         <Pie
                             options={{
                                 plugins: {
-                                    legend: { 
+                                    legend: {
                                         position: 'bottom',
                                         align: 'start',
                                         labels: {

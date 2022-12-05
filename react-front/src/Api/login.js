@@ -1,10 +1,14 @@
 import axios from "axios"
+import getAllReccomended from "./getReccomended"
 
 /* global google */
 
-const login = (setSubs, topics, api_key) => {
+const login = (setSubs, topics, api_key, setChannel) => {
+    console.log('hello')
+
     const handleCallbackResponse = (response) => {
         getSubscriptions(response.access_token, setSubs, topics, api_key)
+        getChannelDetails(response.access_token, setChannel)
     }
     let client = google.accounts.oauth2.initTokenClient({
         scope: 'https://www.googleapis.com/auth/youtube.readonly',
@@ -42,11 +46,25 @@ const getSubscriptions = (auth, setSubs, topics, api_key) => {
                         .filter((item) => item)
                     return { ...item, topicDetails: { mainCategories, ...item.topicDetails } }
                 })
-                setSubs(prev => subs)
+                getAllReccomended(subs)
             })
         }).catch((error) => {
             console.log(error)
         })
 }
+
+const getChannelDetails = (auth, setChannel) => {
+    axios
+        .get(
+            `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&mine=true&access_token=${auth}`
+        )
+        .then((data) => {
+            setChannel(data.data.items[0]);
+            console.log(data.data.items[0]);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+};
 
 export default login
