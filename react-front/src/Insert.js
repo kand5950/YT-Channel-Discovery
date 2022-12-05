@@ -14,6 +14,7 @@ export default function Insert({ subs, setOrderedSubs }) {
                 }
                 return final
             }, {})
+            setOrderedSubs(categories)
             console.log(categories)
         } else if (orderType === 'subscriber-count') {
             setOrderedSubs(prev => [...prev.sort((a, b) => b.statistics.subscriberCount - a.statistics.subscriberCount)])

@@ -132,7 +132,7 @@ export default function Display({ subs, setHovered }) {
                 <Insert setOrderedSubs={setOrderedSubs} subs={subs} />
                 <div className={styles.subcolumn}>
                     <div className={styles.subcontainer}>
-                        {orderedSubs && orderedSubs.map((item) => {
+                        {orderedSubs && Array.isArray(orderedSubs) ? orderedSubs.map((item) => {
                             return (
                                 <SubItem
                                     classname={styles[item.topicDetails.mainCategories[0]]}
@@ -142,7 +142,25 @@ export default function Display({ subs, setHovered }) {
                                     setToggleHover={setToggleHover}
                                 />
                             );
-                        })}
+                        }) :
+                            Object.values(orderedSubs).map((item, index) => {
+                                return <div><h3>{Object.keys(orderedSubs)[index]}</h3>
+                                    <div>
+                                        {item.map((itemOfCategory) => {
+                                            return (
+                                                <SubItem
+                                                    classname={styles[itemOfCategory.topicDetails.mainCategories[0]]}
+                                                    subs={itemOfCategory}
+                                                    setHovered={setHovered}
+                                                    hoverToggle={toggleHover}
+                                                    setToggleHover={setToggleHover}
+                                                />
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            })
+                        }
                     </div>
                 </div>
             </div>
