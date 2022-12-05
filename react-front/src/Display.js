@@ -5,11 +5,10 @@ import Reccomended from './Reccomended';
 import SubItem from './SubItem';
 import { useRef } from 'react';
 import { Pie, getElementsAtEvent } from 'react-chartjs-2';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend, Chart } from 'chart.js';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function Display({ subs, setHovered }) {
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>;
   const [orderedSubs, setOrderedSubs] = useState(subs && subs);
   const [toggleHover, setToggleHover] = useState(true);
 
@@ -24,12 +23,6 @@ export default function Display({ subs, setHovered }) {
       console.log(data.datasets[datasetIndexNum].link[dataPoint]);
     }
   };
-
-  const config = {
-    type: 'pie',
-    data: subs,
-  };
-
 
   const data = {
     labels: [
@@ -57,8 +50,9 @@ export default function Display({ subs, setHovered }) {
       ],
       hoverOffset: 4,
       //link to render filtered categories
-      link: ['link', 'link2', 'link3', 'link4', 'link5', 'link6', 'link7', 'link8']
-    }]
+      link: ['link', 'link2', 'link3', 'link4', 'link5', 'link6', 'link7', 'link8'],
+    }],
+
   };
 
   return (
@@ -67,7 +61,18 @@ export default function Display({ subs, setHovered }) {
         <div className={styles.usercolumn}>
           <div className={styles.chart}>
             <Pie
-              options={subs}
+              options={{
+                plugins: { 
+                  legend: {
+                    position: 'top',
+                    labels: {
+                      usePointStyle: true,
+                    }
+                  } 
+                }
+              }
+
+              }
               data={data}
               onClick={onClick}
               ref={chartRef}
