@@ -15,14 +15,14 @@ function App() {
 
   const [subs, setSubs] = useState(null)
   const [channel, setChannel] = useState(null)
-  const [reccomended, setReccomendeded] = useState(null)
+  const [reccomended, setReccomended] = useState(null)
   const [hovered, setHovered] = useState({ hovering: false })
 
   return (
     <div className={styles.container}>
       <button onClick={() => console.log(subs, reccomended, hovered)}>print subs</button>
       {!subs ? <div><div onClick={() => { login(setSubs, topics, api_key, setChannel) }}>hello</div></div>
-        : <Home subs={subs} hovered={hovered} setHovered={setHovered} topics={topics} channel={channel} />}
+        : <Home subs={subs} hovered={hovered} setHovered={setHovered} topics={topics} channel={channel} reccomended={reccomended} setReccomended={setReccomended} />}
     </div >
   );
 }

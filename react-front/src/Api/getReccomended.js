@@ -1,8 +1,5 @@
 import axios from "axios"
 
-
-
-
 const testGetSUBS = (subs, setSubs, api_key) => {
     let addedChannels = [...subs]
 
@@ -82,7 +79,7 @@ const getAllReccomended = (subs, setSubs, api_key) => {
     testGetSUBS(subs, setSubs, api_key)
 }
 
-//   const getAllReccomended = () => {
+//   const createReccomends = () => {
 //     let subscriptions = subs.filter(item => item.subscriptions).map((item) => {
 //       item.subscriptions.map((chnl) => chnl.snippet.from = item.snippet.title)
 //       return [...item.subscriptions]

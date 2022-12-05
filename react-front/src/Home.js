@@ -1,21 +1,14 @@
+import { useState } from "react"
 import Display from "./Display"
 import styles from './Display.module.css'
+import Insert from "./Insert"
 
-export default function Home({ subs, hovered, setHovered, topics, channel }) {
+export default function Home({ subs, hovered, setHovered, topics, channel, reccomended, setReccomended }) {
 
+    const [reccomendedOrder, setReccomendedOrder] = useState(reccomended && [...reccomended])
 
     return (
         <>
-            {/* <div>
-                <button onClick={doAuth}>AUTH</button>
-                <button onClick={getSubscriptions}>SUBS</button>
-                <button onClick={testGetReccomends}>RECCO</button>
-                <button onClick={testGetSUBS}>TESTSUBS</button>
-                <button onClick={getAllReccomended}>GET ALL RECCOMENDED</button>
-                <button onClick={orderBySubs}>ORDER BY SUBCOUNT </button>
-                <button onClick={orderByCount}>ORDER BY COUNT </button>
-                <button onClick={() => console.log(subs, reccomended, hovered)}>print subs</button>
-            </div> */}
             <div className={styles.dashboard}>
                 <div className={styles.legend}>
                     <div>
@@ -31,6 +24,7 @@ export default function Home({ subs, hovered, setHovered, topics, channel }) {
                             >User Info</button>
                         </span>
                         </header>
+                        {reccomendedOrder && <Insert subs={reccomended} setOrderedSubs={setReccomendedOrder} reset />}
                         {hovered.hovering ?
                             <div className={styles.legendSection}>
                                 <img src={hovered.thumbnail} alt='' />
@@ -96,7 +90,7 @@ export default function Home({ subs, hovered, setHovered, topics, channel }) {
                         }
                     </div>
                 </div>
-                <Display subs={subs} setHovered={setHovered} />
+                <Display subs={subs} setHovered={setHovered} reccomended={reccomended} reccomendedOrder={reccomendedOrder} setReccomended={setReccomended} setReccomendedOrder={setReccomendedOrder} />
             </div>
         </>
 

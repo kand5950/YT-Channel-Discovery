@@ -1,6 +1,6 @@
 import styles from './Display.module.css'
 
-export default function Insert({ subs, setOrderedSubs }) {
+export default function Insert({ subs, setOrderedSubs, reset }) {
 
 
     const orderSubs = (orderType) => {
@@ -15,11 +15,12 @@ export default function Insert({ subs, setOrderedSubs }) {
                 return final
             }, {})
             setOrderedSubs(categories)
-            console.log(categories)
         } else if (orderType === 'subscriber-count') {
-            setOrderedSubs(prev => [...prev.sort((a, b) => b.statistics.subscriberCount - a.statistics.subscriberCount)])
+            setOrderedSubs([...subs].sort((a, b) => b.statistics.subscriberCount - a.statistics.subscriberCount))
         } else if (orderType === 'default') {
             setOrderedSubs([...subs])
+        } else if (orderType === 'reset') {
+            setOrderedSubs(null)
         }
     }
 
@@ -28,6 +29,8 @@ export default function Insert({ subs, setOrderedSubs }) {
             <div onClick={() => orderSubs('default')}>default</div>
             <div onClick={() => orderSubs('subscriber-count')}>bysubs</div>
             <div onClick={() => orderSubs('by-category')}>byCategory</div>
+            {reset && <div onClick={() => orderSubs('reset')}>reset</div>}
+
         </div>
     )
 }

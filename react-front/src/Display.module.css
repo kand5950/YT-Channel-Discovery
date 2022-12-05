@@ -61,6 +61,8 @@
   display: block;
   position: absolute;
   top: 10;
+  background-color: black;
+  color: wheat;
 }
 .container .legend .reccomended .channel p {
   display: none;
@@ -76,6 +78,10 @@
   border: 2px solid black;
   background-color: antiquewhite;
   margin: 3%;
+}
+.outerdisplay .categorySection {
+  display: flex;
+  flex-wrap: wrap;
 }
 .outerdisplay .reccomended {
   display: flex;
