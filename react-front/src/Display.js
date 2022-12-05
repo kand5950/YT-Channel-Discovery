@@ -5,13 +5,13 @@ import Reccomended from './Reccomended'
 import SubItem from './SubItem'
 
 export default function Display({ subs, setHovered }) {
-    const [orderedSubs, setOrderedSubs] = useState(subs && subs)
+    const [orderedSubs, setOrderedSubs] = useState(subs && [...subs])
     const [toggleHover, setToggleHover] = useState(true)
 
 
     return (
         <div className={styles.outerdisplay}>
-            <div className={styles.display}>
+            {/* <div className={styles.display}>
                 <div className={styles.usercolumn}>
                     <div className={styles.chart}>
                         PIE CHART
@@ -36,12 +36,12 @@ export default function Display({ subs, setHovered }) {
                         })}
                     </div>
                 </div>
-            </div>
-            {/* <Reccomended
+            </div> */}
+            <Reccomended
                 subs={orderedSubs}
                 setHovered={setHovered}
                 hoverToggle={toggleHover}
-                setToggleHover={setToggleHover} /> */}
+                setToggleHover={setToggleHover} />
         </div >
     )
 }
