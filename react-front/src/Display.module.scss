@@ -59,6 +59,7 @@
         flex-wrap: wrap;
       }
       .channel {
+        margin: 3px;
         &:hover {
           & > p {
             z-index: 3;

@@ -57,6 +57,9 @@
   display: flex;
   flex-wrap: wrap;
 }
+.container .legend .reccomended .channel {
+  margin: 3px;
+}
 .container .legend .reccomended .channel:hover > p {
   z-index: 3;
   display: block;
