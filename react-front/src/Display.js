@@ -21,9 +21,11 @@ export default function Display({ subs, setHovered }) {
       const dataPoint = getElementsAtEvent(chartRef.current, event)[0].index;
       console.log(`Dataset: ${datasetIndexNum} and  Data: ${dataPoint} `);
       console.log(data.datasets[datasetIndexNum].link[dataPoint]);
+      // console.log(event.target.value)
+      // console.log(event)
     }
   };
-  
+
   const countCategories = () => {
     let categories = [];
     for (let i = 0; i < subs.length; i++) {
@@ -31,27 +33,24 @@ export default function Display({ subs, setHovered }) {
       categories.push(allSubsValues);
     }
     const count = categories.flat().reduce((acc, curr) => (acc[curr] = (acc[curr] || 0) + 1, acc), {});
-    return count
+    return count;
   };
+
+  const colorObject = { Gaming: 'rgb(255, 255, 0)', Lifestyle: 'rgb(0, 128, 0)', Music: 'rgb(255, 0, 0)', Society: 'rgb(0, 0, 255)', Entertainment: 'rgb(255, 165, 0)', Technology: 'rgb(0, 255, 102)', Hobby: 'rgb(193, 193, 193)', Sports: 'rgb(207, 37, 190)' };
+
 
   const data = {
     labels: Object.keys(countCategories(subs)),
     datasets: [{
       label: 'My Categories',
-      data: Object.values(countCategories(subs)), //ARRAY OF DATA NEEDS TO GO HERE, follow same key id as categories id
-      backgroundColor: [
-        'rgb(255, 0, 0)',
-        'rgb(255, 165, 0)',
-        'rgb(0, 128, 0)',
-        'rgb(207, 37, 190)',
-        'rgb(255, 255, 0)',
-        'rgb(0, 255, 102)',
-        'rgb(193, 193, 193)',
-        'rgb(0, 0, 255)',
-      ],
+      data: Object.values(countCategories(subs)),
+      backgroundColor:
+        Object.keys(countCategories(subs)).map((item) => {
+          return colorObject[item];
+        })
+      ,
       hoverOffset: 4,
-      //link to render filtered categories
-      link: ['link3', 'link2', `{sortLifestyle(subs)}`, 'link4', 'link5', 'link6', 'link7', 'link8'],
+      link: Object.keys(countCategories(subs))
     }],
 
   };
