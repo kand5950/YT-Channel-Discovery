@@ -8,11 +8,16 @@ export default function SubItem({ classname, subs, setHovered, hoverToggle, setT
     const subCount = subs.statistics.subscriberCount
     const videoCount = subs.statistics.videoCount
     const description = subs.snippet.description
-    const categories = subs.topicDetails?.topicIds || ['none']
+    const categories = subs.topicDetails?.topicIds
+    const subscriptions = subs?.subscriptions
+    const reccomendedChannels = subs?.Channels
 
     return (
         <div className={classname} onMouseOver={() => {
-            if (hoverToggle) setHovered({ thumbnail, title, subCount, videoCount, description, categories, hovering: true })
+            if (hoverToggle) setHovered({
+                thumbnail, title, subCount, videoCount, description,
+                subscriptions, reccomendedChannels, categories, hovering: true
+            })
         }} onClick={() => { setToggleHover(prev => !prev) }}>
             <div className={styles.default}>
                 <img src={thumbnail} alt='' />

@@ -31,9 +31,9 @@ export default function Home({ subs, hovered, setHovered, topics, channel }) {
                         </span>
                         </header>
                         {hovered.hovering ?
-                        <div className={styles.legendSection}>
-                            <img src={hovered.thumbnail} alt='' />
-                            <span className={styles.subName}>{hovered.title}</span>
+                            <div className={styles.legendSection}>
+                                <img src={hovered.thumbnail} alt='' />
+                                <span className={styles.subName}>{hovered.title}</span>
                                 <div className={styles.subInfo}>
                                     <p>{hovered.description}</p>
                                     Subscriber count: {hovered.subCount > 1000000 ? hovered.subCount / 1000000 + 'M' : hovered.subCount / 1000 + 'K'}
@@ -42,14 +42,41 @@ export default function Home({ subs, hovered, setHovered, topics, channel }) {
                                     <p>Categories:</p>
                                     <div>
                                         {hovered.categories.map((item) => {
-                                        let topic = topics.find((l) => l.id === item)
+                                            let topic = topics.find((l) => l.id === item)
                                             return (
                                                 <li>{topic && topic.topic}</li>
                                             )
                                         })}
                                     </div>
+                                    <div className={styles.reccomended}>
+                                        <p>Subscriptions</p>
+                                        {hovered.subscriptions &&
+                                            <div className={styles.subscriptions}>
+                                                {hovered.subscriptions.map((item) => {
+                                                    return (
+                                                        <div className={styles.channel}>
+                                                            <img src={item.snippet.thumbnails.default.url} alt='' />
+                                                            <p>{item.snippet.title}</p>
+                                                        </div>
+                                                    )
+                                                })}
+                                            </div>}
+                                        <p>Reccomended Channels:</p>
+                                        {hovered.reccomendedChannels &&
+                                            <div className={styles.reccomendedChannels}>
+                                                {hovered.reccomendedChannels.map((item) => {
+                                                    return (
+                                                        <div className={styles.channel}>
+                                                            <img src={item.snippet.thumbnails.default.url} alt='' />
+                                                            <p>{item.snippet.title}</p>
+                                                        </div>
+                                                    )
+                                                })}
+                                            </div>
+                                        }
+                                    </div>
                                 </div>
-                        </div> :
+                            </div> :
                             <div>
                                 <div>
                                     {channel.snippet.title}

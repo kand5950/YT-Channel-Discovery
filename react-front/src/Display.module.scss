@@ -16,6 +16,7 @@
     background-color: antiquewhite;
     width: 20%;
     min-width: 20%;
+    overflow: scroll;
     header {
       padding: 5px;
       .toggleUser {
@@ -37,19 +38,42 @@
         }
       }
     }
-    div {
-      .legendSection {
-        word-wrap: break-word;
-        img {
-          border-radius: 8px;
-          margin-left: 1em;
-        }
-        span {
-          margin: 1em;
+    .legendSection {
+      word-wrap: break-word;
+      img {
+        border-radius: 8px;
+        margin-left: 1em;
+      }
+      span {
+        margin: 1em;
+      }
+    }
+    .subName {
+      vertical-align: top;
+    }
+    .reccomended {
+      .subscriptions,
+      .reccomendedChannels {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .channel {
+        &:hover {
+          & > p {
+            z-index: 3;
+            display: block;
+            position: absolute;
+            top: 10;
+          }
         }
       }
-      .subName {
-        vertical-align: top;
+      .channel p {
+        display: none;
+      }
+      img {
+        float: left;
+        width: 20px;
+        height: 20px;
       }
     }
   }

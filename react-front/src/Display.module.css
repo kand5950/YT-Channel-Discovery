@@ -17,6 +17,7 @@
   background-color: antiquewhite;
   width: 20%;
   min-width: 20%;
+  overflow: scroll;
 }
 .container .legend header {
   padding: 5px;
@@ -39,18 +40,37 @@
 .container .legend header .toggleUser .hoverButton.on {
   background-color: green;
 }
-.container .legend div .legendSection {
+.container .legend .legendSection {
   word-wrap: break-word;
 }
-.container .legend div .legendSection img {
+.container .legend .legendSection img {
   border-radius: 8px;
   margin-left: 1em;
 }
-.container .legend div .legendSection span {
+.container .legend .legendSection span {
   margin: 1em;
 }
-.container .legend div .subName {
+.container .legend .subName {
   vertical-align: top;
+}
+.container .legend .reccomended .subscriptions,
+.container .legend .reccomended .reccomendedChannels {
+  display: flex;
+  flex-wrap: wrap;
+}
+.container .legend .reccomended .channel:hover > p {
+  z-index: 3;
+  display: block;
+  position: absolute;
+  top: 10;
+}
+.container .legend .reccomended .channel p {
+  display: none;
+}
+.container .legend .reccomended img {
+  float: left;
+  width: 20px;
+  height: 20px;
 }
 
 .outerdisplay {

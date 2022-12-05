@@ -13,7 +13,6 @@ const login = (setSubs, topics, api_key, setChannel) => {
     let client = google.accounts.oauth2.initTokenClient({
         scope: 'https://www.googleapis.com/auth/youtube.readonly',
         client_id: process.env.REACT_APP_client_id,
-        ux_mode: 'popup',
         callback: handleCallbackResponse,
     })
     const getCode = () => {
@@ -46,7 +45,7 @@ const getSubscriptions = (auth, setSubs, topics, api_key) => {
                         .filter((item) => item)
                     return { ...item, topicDetails: { mainCategories, ...item.topicDetails } }
                 })
-                getAllReccomended(subs)
+                getAllReccomended(subs, setSubs, api_key)
             })
         }).catch((error) => {
             console.log(error)
