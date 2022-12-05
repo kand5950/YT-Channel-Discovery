@@ -8,7 +8,7 @@ export default function SubItem({ classname, subs, setHovered, hoverToggle, setT
     const subCount = subs.statistics.subscriberCount
     const videoCount = subs.statistics.videoCount
     const description = subs.snippet.description
-    const categories = subs.topicDetails.topicIds
+    const categories = subs.topicDetails?.topicIds || ['none']
 
     return (
         <div className={classname} onMouseOver={() => {
