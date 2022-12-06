@@ -173,6 +173,15 @@
   width: 100%;
   height: 100%;
 }
+.outerdisplay .reccomended .titleBlock {
+  width: 150px;
+  height: 150px;
+  word-wrap: break-word;
+  line-height: 35px;
+}
+.outerdisplay .reccomended .titleBlock h3 {
+  vertical-align: text-top;
+}
 .outerdisplay .reccomended div {
   margin: auto;
   padding: 15px;

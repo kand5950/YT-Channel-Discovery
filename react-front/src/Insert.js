@@ -7,10 +7,8 @@ export default function Insert({ subs, setOrderedSubs, reccomended }) {
         if (orderType === 'by-category') {
             let categories = subs.reduce((final, item) => {
                 let mainCat = item.topicDetails.mainCategories
-                if (mainCat[0] !== 'none' && mainCat.length === 1) {
-                    !final[mainCat[0]] ? final[mainCat[0]] = [item] : final[mainCat[0]].push(item)
-                } else {
-                    !final.multipleCategories ? final.multipleCategories = [item] : final.multipleCategories.push(item)
+                if (mainCat[0] !== 'none') {
+                    !final[mainCat] ? final[mainCat] = [item] : final[mainCat].push(item)
                 }
                 return final
             }, {})
@@ -24,11 +22,11 @@ export default function Insert({ subs, setOrderedSubs, reccomended }) {
         } else if (orderType === 'by-duplicate') {
             setOrderedSubs(prev => {
                 if (Array.isArray(prev)) {
-                    return [...subs].sort((a, b) => b.count - a.count)
+                    return [...subs].sort((a, b) => (b.count || 0) - (a.count || 0))
                 } else {
                     let catSubs = { ...prev }
                     for (const cat in catSubs) {
-                        catSubs[cat].sort((a, b) => b.count - a.count)
+                        catSubs[cat].sort((a, b) => (b.count || 0) - (a.count || 0))
                     }
                     return catSubs
                 }

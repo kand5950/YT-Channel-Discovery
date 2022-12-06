@@ -1,7 +1,7 @@
 import styles from './Display.module.css'
 
 
-export default function reccomendedItem({ classname, subs, setHovered, hoverToggle, setToggleHover }) {
+export default function reccomendedItem({ classname, subs, setHovered, hoverToggle, setToggleHover, sectionNames }) {
 
     const thumbnail = subs.snippet.thumbnails.default.url
     const title = subs.snippet.title
