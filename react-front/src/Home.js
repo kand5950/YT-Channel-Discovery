@@ -25,7 +25,7 @@ export default function Home({ subs, hovered, setHovered, topics, channel, recco
                             >User Info</button>
                         </span>
                         </header>
-                        {reccomendedOrder && <Insert subs={reccomended} setOrderedSubs={setReccomendedOrder} reset />}
+                        {reccomendedOrder && <Insert subs={reccomended} setOrderedSubs={setReccomendedOrder} reccomended />}
                         {hovered.hovering ?
                             <div className={styles.legendSection}>
                                 <img src={hovered.thumbnail} alt='' />

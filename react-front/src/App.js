@@ -18,6 +18,8 @@ function App() {
 
   return (
     <div className={styles.container}>
+      <button onClick={() => console.log(subs, reccomended, hovered)}>print subs</button>
+      YOUTUBE RECCOMENDED
       {!subs ? <div><div onClick={() => { login(setSubs, topics, api_key, setChannel) }}>hello</div></div>
         : <Home subs={subs} hovered={hovered} setHovered={setHovered} topics={topics} channel={channel} reccomended={reccomended} setReccomended={setReccomended} />}
     </div >
