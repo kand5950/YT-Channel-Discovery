@@ -41,7 +41,8 @@ export default function Home({ subs, hovered, setHovered, topics, channel, recco
                                         {hovered.categories.map((item) => {
                                             let topic = topics.find((l) => l.id === item)
                                             return (
-                                                <li>{topic && topic.topic}</li>
+
+                                                <li>{(topic || item === 'none') && (topic.topic || item)}</li>
                                             )
                                         })}
                                     </div>
