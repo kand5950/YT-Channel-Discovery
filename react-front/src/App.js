@@ -52,11 +52,18 @@ function App() {
           <p>Discover unique content creators based on your interests!</p>
           </ul>
         </div>
-        <button
-          className={styles.landingbutton}
-          onClick={handleClick}>
-          Log In
-        </button>
+        <div className="sign-in" onClick={handleClick}>
+        <div className="g-sign-in-button">
+          <div className="content-wrapper">
+            <div className="logo-wrapper">
+              <img src="https://developers.google.com/identity/images/g-logo.png"></img>
+            </div>
+            <span className="text-container">
+              <span>Sign in with Google</span>
+            </span>
+          </div>
+        </div>
+    </div>
       </div>
         : subs === "loading" ? <Status /> : <Home
           subs={subs}
