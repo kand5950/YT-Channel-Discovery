@@ -45,29 +45,35 @@ export default function Home({ subs, hovered, setHovered, topics, channel, recco
                                         })}
                                     </div>
                                     <div className={styles.reccomended}>
-                                        <p>Subscriptions</p>
-                                        {hovered.subscriptions &&
-                                            <div className={styles.subscriptions}>
-                                                {hovered.subscriptions.map((item) => {
-                                                    return (
-                                                        <div className={styles.channel}>
-                                                            <img src={item.snippet?.thumbnails?.default?.url} alt='' />
-                                                            <p>{item.snippet?.title}</p>
-                                                        </div>
-                                                    )
-                                                })}
-                                            </div>}
-                                        <p>Reccomended Channels:</p>
-                                        {hovered.reccomendedChannels &&
-                                            <div className={styles.reccomendedChannels}>
-                                                {hovered.reccomendedChannels.map((item) => {
-                                                    return (
-                                                        <div className={styles.channel}>
-                                                            <img src={item.snippet?.thumbnails?.default?.url} alt='' />
-                                                            <p>{item.snippet?.title}</p>
-                                                        </div>
-                                                    )
-                                                })}
+                                        {hovered.subscriptions[0] !== 'none' &&
+                                            <div>
+                                                <p>Subscriptions</p>
+                                                <div className={styles.subscriptions}>
+                                                    {hovered.subscriptions.map((item) => {
+                                                        return (
+                                                            <div className={styles.channel}>
+                                                                <img src={item.snippet?.thumbnails?.default?.url} alt='' />
+                                                                <p>{item.snippet?.title}</p>
+                                                            </div>
+                                                        )
+                                                    })}
+                                                </div>
+                                            </div>
+
+                                        }
+                                        {hovered.reccomendedChannels[0] !== 'none' &&
+                                            <div>
+                                                <p>Reccomended Channels:</p>
+                                                <div className={styles.reccomendedChannels}>
+                                                    {hovered.reccomendedChannels.map((item) => {
+                                                        return (
+                                                            <div className={styles.channel}>
+                                                                <img src={item.snippet?.thumbnails?.default?.url} alt='' />
+                                                                <p>{item.snippet?.title}</p>
+                                                            </div>
+                                                        )
+                                                    })}
+                                                </div>
                                             </div>
                                         }
                                     </div>
