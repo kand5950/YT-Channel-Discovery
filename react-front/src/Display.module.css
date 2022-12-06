@@ -16,7 +16,7 @@
   position: fixed;
   width: 40%;
   text-align: center;
-  top: 25%;
+  top: 1%;
   left: 50%;
   padding: 20px;
   transform: translate(-50%, 0);
@@ -25,10 +25,36 @@
 .container .landingpage .landingbutton {
   position: fixed;
   text-align: center;
-  top: 25%;
   left: 50%;
   transform: translate(-50%, 0);
-  margin-top: 10em;
+  padding: 10px;
+}
+.container .landingpage .middleContainer {
+  margin-top: 5em;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4em;
+  gap: 50px;
+  color: white;
+}
+.container .landingpage .lowerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: white;
+}
+.container .landingpage .icon {
+  height: 50px;
+  padding-bottom: 0.8em;
+}
+.container .landingpage .featureTitle {
+  padding-top: 0.2em;
+  color: white;
+}
+.container .landingpage .homeImage {
+  width: 22%;
 }
 .container .dashboard {
   display: flex;
