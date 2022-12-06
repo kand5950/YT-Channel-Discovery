@@ -20,10 +20,8 @@ export default function Display({ subs, setHovered, reccomendedOrder, reccomende
         if (getElementsAtEvent(chartRef.current, event).length > 0) {
             const datasetIndexNum = getElementsAtEvent(chartRef.current, event)[0].datasetIndex;
             const dataPoint = getElementsAtEvent(chartRef.current, event)[0].index;
-            console.log(`Dataset: ${datasetIndexNum} and  Data: ${dataPoint} `);
-            console.log(data.datasets[datasetIndexNum].link[dataPoint]);
-            // console.log(event.target.value)
-            // console.log(event)
+
+            setOrderedSubs(subs.filter((item) => item.topicDetails.mainCategories[0].includes(data.datasets[datasetIndexNum].link[dataPoint])));
         }
     }
     const countCategories = () => {
