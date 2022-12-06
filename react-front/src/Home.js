@@ -42,7 +42,7 @@ export default function Home({ subs, hovered, setHovered, topics, channel, recco
                                             let topic = topics.find((l) => l.id === item)
                                             return (
 
-                                                <li>{(topic || item === 'none') && (topic.topic || item)}</li>
+                                                <li>{(topic || item === 'none') && (topic?.topic || item)}</li>
                                             )
                                         })}
                                     </div>
