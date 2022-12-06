@@ -62,11 +62,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     margin-top: 27em;
 
     .transitionimg {
-      margin-right: 2rem;
       animation: rotate 1s linear infinite;
+    }
+
+    .transitiontext {
+      margin-top: -2px;
+      color: rgba(255, 255, 255, 0.678);
     }
   }
 

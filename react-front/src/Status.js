@@ -10,6 +10,7 @@ export default function Status(props) {
         src={status}
         alt="Loading"
       />
+      <h4 className={styles.transitiontext}>Fetching data</h4>
     </div>
   );
 }

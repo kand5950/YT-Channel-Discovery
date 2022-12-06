@@ -60,12 +60,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   margin-top: 27em;
 }
 .container .transition .transitionimg {
-  margin-right: 2rem;
   -webkit-animation: rotate 1s linear infinite;
           animation: rotate 1s linear infinite;
+}
+.container .transition .transitiontext {
+  margin-top: -2px;
+  color: rgba(255, 255, 255, 0.678);
 }
 .container .dashboard {
   display: flex;
