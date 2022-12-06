@@ -7,6 +7,7 @@ import { useRef } from 'react';
 import { Pie, getElementsAtEvent } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import topics from './data/topics';
+import setReccomendedSet from './helper/setReccomended';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function Display({ subs, setHovered, reccomendedOrder, reccomended, setReccomended, setReccomendedOrder }) {
@@ -83,32 +84,12 @@ export default function Display({ subs, setHovered, reccomendedOrder, reccomende
                             />
                         </div>
                         <div className={styles.user}>
-                            <button onClick={() => {
-                                let subscriptions = subs.filter(item => item.subscriptions).map((item) => {
-                                    item.subscriptions.map((chnl) => chnl.snippet.from = item.snippet.title)
-                                    return [...item.subscriptions]
-                                })
-                                let channels = subs.filter(item => item.channels).map((item) => {
-                                    item.channels.map((chnl) => chnl.snippet.from = item.snippet.title)
-                                    return [...item.channels]
-                                })
-                                setReccomended([].concat(...subscriptions, ...channels).map((item) => {
-                                    let mainCategories = (item.topicDetails?.topicIds?.length ? item.topicDetails.topicIds.map((item) => {
-                                        let topic = topics.find((l) => l.id === item && l.parent)
-                                        return (
-                                            topic && topic.topic
-                                        )
-                                    }) : ['none'])
-                                        .filter((item) => item)
-                                    return { ...item, topicDetails: { mainCategories, ...item.topicDetails } }
-                                }))
-                            }}>button 1</button>
-                            <button onClick={() => {
+                            {!reccomended && <div onClick={() => {
+                                setReccomendedSet(subs, setReccomended)
+                            }}>Set Reccomended</div>}
+                            {reccomended && <div onClick={() => {
                                 setReccomendedOrder([...reccomended])
-                            }}>button 2</button>
-                            <button onClick={() => {
-
-                            }}>button 3</button>
+                            }}>View Reccomended</div>}
                         </div>
                     </div>
                     <Insert setOrderedSubs={setOrderedSubs} subs={subs} />

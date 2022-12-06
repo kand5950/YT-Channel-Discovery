@@ -1,6 +1,6 @@
 import styles from './Display.module.css'
 
-export default function Insert({ subs, setOrderedSubs, reset }) {
+export default function Insert({ subs, setOrderedSubs, reccomended }) {
 
 
     const orderSubs = (orderType) => {
@@ -15,6 +15,24 @@ export default function Insert({ subs, setOrderedSubs, reset }) {
                 return final
             }, {})
             setOrderedSubs(categories)
+        } else if (orderType === 'by-creator') {
+            let creators = subs.reduce((final, item) => {
+                !final[item.snippet.from] ? final[item.snippet.from] = [item] : final[item.snippet.from].push(item)
+                return final
+            }, {})
+            setOrderedSubs(creators)
+        } else if (orderType === 'by-duplicate') {
+            setOrderedSubs(prev => {
+                if (Array.isArray(prev)) {
+                    return [...subs].sort((a, b) => b.count - a.count)
+                } else {
+                    let catSubs = { ...prev }
+                    for (const cat in catSubs) {
+                        catSubs[cat].sort((a, b) => b.count - a.count)
+                    }
+                    return catSubs
+                }
+            })
         } else if (orderType === 'subscriber-count') {
             setOrderedSubs(prev => {
                 if (Array.isArray(prev)) {
@@ -36,10 +54,12 @@ export default function Insert({ subs, setOrderedSubs, reset }) {
 
     return (
         <div className={styles.insert}>
-            <div onClick={() => orderSubs('default')}>default</div>
-            <div onClick={() => orderSubs('subscriber-count')}>bysubs</div>
-            <div onClick={() => orderSubs('by-category')}>byCategory</div>
-            {reset && <div onClick={() => orderSubs('reset')}>reset</div>}
+            <div onClick={() => orderSubs('default')}>Default</div>
+            <div onClick={() => orderSubs('subscriber-count')}>By Subs</div>
+            {reccomended && <div onClick={() => orderSubs('by-duplicate')}>By Duplicates</div>}
+            <div onClick={() => orderSubs('by-category')}>ByCategory</div>
+            {reccomended && <div onClick={() => orderSubs('by-creator')}>ByCreator</div>}
+            {reccomended && <div onClick={() => orderSubs('reset')}>Back to Subs</div>}
 
         </div>
     )

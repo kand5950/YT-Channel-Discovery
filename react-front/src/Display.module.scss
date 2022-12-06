@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: 102vh;
   background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .7)), url('./assets/bgpic.jpg');
   .landingpage {
     height: 100vh;
@@ -29,11 +29,12 @@
       margin-top: 10em;
     }
   }
+  padding-bottom: 8px;
   .dashboard {
     display: flex;
-    border: 2px solid black;
+    border: 3px solid black;
     justify-content: center;
-    height: 98vh;
+    height: 96vh;
     width: 95vw;
     margin: 6px;
   }
@@ -43,6 +44,19 @@
     width: 20%;
     min-width: 20%;
     overflow: scroll;
+    border: 3px solid white;
+    .insert {
+      text-align: center;
+      margin-right: 20px;
+      margin-left: 20px;
+      div {
+        padding: 5px;
+        &:hover {
+          cursor: pointer;
+          background-color: green;
+        }
+      }
+    }
     header {
       display: flex;
       padding: 5px;
@@ -112,7 +126,7 @@
 }
 .outerdisplay {
   width: 80%;
-  border: 2px solid black;
+  border: 4px solid white;
   background-color: antiquewhite;
   margin: 3%;
   .categorySection {
@@ -126,11 +140,13 @@
     width: 100%;
     height: 100%;
     div {
-      margin: 7px;
-      padding: 3px;
+      margin: auto;
+      padding: 15px;
       height: fit-content;
       transition: 0.1s;
       img {
+        width: 100px;
+        border: 2px solid white;
         cursor: pointer;
       }
       p {
@@ -160,9 +176,21 @@
       margin: 10px;
     }
     .user {
-      height: 50vh;
+      height: 25vh;
       text-align: center;
       border: 2px solid black;
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background-color: green;
+        &:hover {
+          cursor: pointer;
+          background-color: wheat;
+        }
+      }
     }
   }
   .insert {
