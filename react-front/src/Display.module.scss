@@ -4,13 +4,14 @@
   align-items: center;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .7)), url('./assets/bgpic.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)),
+    url("./assets/bgpic.jpg");
   .landingpage {
     height: 100vh;
     width: 100%;
-	  background-position: center;
-	  background-size: cover;
-    .landingtitle{
+    background-position: center;
+    background-size: cover;
+    .landingtitle {
       position: fixed;
       width: 40%;
       text-align: center;
@@ -20,14 +21,14 @@
       transform: translate(-50%, 0);
       color: white;
     }
-    .landingbutton{
+    .landingbutton {
       position: fixed;
       text-align: center;
       left: 50%;
       transform: translate(-50%, 0);
       padding: 10px;
     }
-    .middleContainer{
+    .middleContainer {
       margin-top: 5em;
       display: flex;
       flex-direction: row-reverse;
@@ -35,11 +36,10 @@
       justify-content: center;
       padding-top: 4em;
       gap: 50px;
-      color: white
-
+      color: white;
     }
     .lowerContainer {
-      display:flex;
+      display: flex;
       flex-direction: row;
       justify-content: center;
 
@@ -59,18 +59,17 @@
     }
   }
   .transition {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 27em;
-      
-      .transitionimg {
-        margin-right: 2rem;
-        animation: rotate 1s linear infinite;
-      }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 27em;
+
+    .transitionimg {
+      margin-right: 2rem;
+      animation: rotate 1s linear infinite;
+    }
   }
 
-  
   .dashboard {
     display: flex;
     border: 3px solid black;
@@ -181,6 +180,15 @@
     overflow: scroll;
     width: 100%;
     height: 100%;
+    .titleBlock {
+      width: 150px;
+      height: 150px;
+      word-wrap: break-word;
+      line-height: 35px;
+      h3 {
+        vertical-align: text-top;
+      }
+    }
     div {
       margin: auto;
       padding: 15px;

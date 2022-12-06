@@ -6,6 +6,11 @@ export default function Reccomended({ orderedSubs, setHovered, setToggleHover, h
 
     return (
         <div className={styles.reccomended}>
+            <div className={styles.titleBlock}>
+                <h3>Reccomended
+                    and Subscribed
+                    to Channels:</h3>
+            </div>
             {orderedSubs && Array.isArray(orderedSubs) ? orderedSubs.map((item) => {
                 return (
                     <ReccomendedItem
@@ -18,7 +23,13 @@ export default function Reccomended({ orderedSubs, setHovered, setToggleHover, h
                 );
             }) :
                 Object.values(orderedSubs).map((item, index) => {
-                    return <div><h3>{Object.keys(orderedSubs)[index]}</h3>
+                    let sectionName = Object.keys(orderedSubs)[index]
+                    if (sectionName.includes(',')) {
+                        sectionName = sectionName.split(',')
+                        let lastItem = sectionName.pop()
+                        sectionName = sectionName.join(', ') + `, and ${lastItem}`
+                    }
+                    return <div><h3>{sectionName}</h3>
                         <div className={styles.categorySection}>
                             {item.map((itemOfCategory) => {
                                 return (

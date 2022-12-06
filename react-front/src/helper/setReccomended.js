@@ -25,9 +25,7 @@ const setReccomendedSet = (subs, setReccomended) => {
             let title = prev[i].snippet.title
             let index = prev.findIndex(item => item.snippet.title === title)
 
-            // if (prev[index].snippet.from !== prev[i].snippet.from) {
             count[title] = (count[title] || 0) + 1
-            // }
 
             if (count[title] > 1) {
                 if (!Array.isArray(prev[index].snippet.from)) {
@@ -37,10 +35,10 @@ const setReccomendedSet = (subs, setReccomended) => {
                     prev[index].snippet.from.push(prev[i].snippet.from)
                 }
                 if (prev[index].snippet.from.length > 1) prev[index].count = prev[index].snippet.from.length
-                prev.splice(i, 1)
+
             }
         }
-        return [...prev.sort((a, b) => (b?.count || 0) - (a?.count || 0))]
+        return [...prev.filter((item, index, array) => array.findIndex((elem) => elem.snippet.title === item.snippet.title) === index)]
     })
 }
 

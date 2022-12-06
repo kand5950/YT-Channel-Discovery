@@ -22,7 +22,7 @@ export default function Display({ subs, setHovered, reccomendedOrder, reccomende
             const datasetIndexNum = getElementsAtEvent(chartRef.current, event)[0].datasetIndex;
             const dataPoint = getElementsAtEvent(chartRef.current, event)[0].index;
 
-            setOrderedSubs(subs.filter((item) => item.topicDetails.mainCategories[0].includes(data.datasets[datasetIndexNum].link[dataPoint])));
+            setOrderedSubs({ [data.datasets[datasetIndexNum].link[dataPoint]]: subs.filter((item) => item.topicDetails.mainCategories.includes(data.datasets[datasetIndexNum].link[dataPoint])) });
         }
     }
     const countCategories = () => {
@@ -107,7 +107,13 @@ export default function Display({ subs, setHovered, reccomendedOrder, reccomende
                                 );
                             }) :
                                 Object.values(orderedSubs).map((item, index) => {
-                                    return <div><h3>{Object.keys(orderedSubs)[index]}</h3>
+                                    let sectionName = Object.keys(orderedSubs)[index]
+                                    if (sectionName.includes(',')) {
+                                        sectionName = sectionName.split(',')
+                                        let lastItem = sectionName.pop()
+                                        sectionName = sectionName.join(', ') + `, and ${lastItem}`
+                                    }
+                                    return <div><h3>{sectionName}</h3>
                                         <div className={styles.categorySection}>
                                             {item.map((itemOfCategory) => {
                                                 return (
