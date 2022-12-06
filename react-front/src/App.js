@@ -3,10 +3,8 @@ import { useState } from 'react';
 import styles from './Display.module.css'
 import Home from './Home';
 import login from './Api/login';
-import getAllReccomended from './Api/getReccomended';
 import topics from './data/topics';
 
-/* global google */
 
 
 function App() {

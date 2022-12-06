@@ -16,7 +16,17 @@ export default function Insert({ subs, setOrderedSubs, reset }) {
             }, {})
             setOrderedSubs(categories)
         } else if (orderType === 'subscriber-count') {
-            setOrderedSubs([...subs].sort((a, b) => b.statistics.subscriberCount - a.statistics.subscriberCount))
+            setOrderedSubs(prev => {
+                if (Array.isArray(prev)) {
+                    return [...subs].sort((a, b) => b.statistics.subscriberCount - a.statistics.subscriberCount)
+                } else {
+                    let catSubs = { ...prev }
+                    for (const cat in catSubs) {
+                        catSubs[cat].sort((a, b) => b.statistics.subscriberCount - a.statistics.subscriberCount)
+                    }
+                    return catSubs
+                }
+            })
         } else if (orderType === 'default') {
             setOrderedSubs([...subs])
         } else if (orderType === 'reset') {
