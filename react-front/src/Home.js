@@ -1,3 +1,4 @@
+import { formToJSON } from "axios"
 import { useState } from "react"
 import Display from "./Display"
 import styles from './Display.module.css'
@@ -43,6 +44,10 @@ export default function Home({ subs, hovered, setHovered, topics, channel, recco
                                                 <li>{topic && topic.topic}</li>
                                             )
                                         })}
+                                    </div>
+                                    <div>
+                                        <p>Subbed to/Reccomended by:</p>
+                                        {hovered.from && hovered.from}
                                     </div>
                                     <div className={styles.reccomended}>
                                         {hovered.subscriptions[0] !== 'none' &&

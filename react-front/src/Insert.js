@@ -21,6 +21,18 @@ export default function Insert({ subs, setOrderedSubs, reccomended }) {
                 return final
             }, {})
             setOrderedSubs(creators)
+        } else if (orderType === 'by-duplicate') {
+            setOrderedSubs(prev => {
+                if (Array.isArray(prev)) {
+                    return [...subs].sort((a, b) => b.count - a.count)
+                } else {
+                    let catSubs = { ...prev }
+                    for (const cat in catSubs) {
+                        catSubs[cat].sort((a, b) => b.count - a.count)
+                    }
+                    return catSubs
+                }
+            })
         } else if (orderType === 'subscriber-count') {
             setOrderedSubs(prev => {
                 if (Array.isArray(prev)) {
@@ -43,10 +55,11 @@ export default function Insert({ subs, setOrderedSubs, reccomended }) {
     return (
         <div className={styles.insert}>
             <div onClick={() => orderSubs('default')}>Default</div>
-            <div onClick={() => orderSubs('subscriber-count')}>Bysubs</div>
+            <div onClick={() => orderSubs('subscriber-count')}>By Subs</div>
+            {reccomended && <div onClick={() => orderSubs('by-duplicate')}>By Duplicates</div>}
             <div onClick={() => orderSubs('by-category')}>ByCategory</div>
             {reccomended && <div onClick={() => orderSubs('by-creator')}>ByCreator</div>}
-            {reccomended && <div onClick={() => orderSubs('reset')}>Reset</div>}
+            {reccomended && <div onClick={() => orderSubs('reset')}>Back to Subs</div>}
 
         </div>
     )

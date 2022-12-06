@@ -79,17 +79,5 @@ const getAllReccomended = (subs, setSubs, api_key) => {
     testGetSUBS(subs, setSubs, api_key)
 }
 
-//   const createReccomends = () => {
-//     let subscriptions = subs.filter(item => item.subscriptions).map((item) => {
-//       item.subscriptions.map((chnl) => chnl.snippet.from = item.snippet.title)
-//       return [...item.subscriptions]
-//     })
-//     let channels = subs.filter(item => item.channels).map((item) => {
-//       item.channels.map((chnl) => chnl.snippet.from = item.snippet.title)
-//       return [...item.channels]
-//     })
-//     setReccomendeded([].concat(...subscriptions, ...channels))
-//   }
-
 
 export default getAllReccomended
