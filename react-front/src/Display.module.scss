@@ -57,17 +57,19 @@
       .reccomendedChannels {
         display: flex;
         flex-wrap: wrap;
+        position: relative;
       }
       .channel {
-        margin: 3px;
+        margin: 5px;
         &:hover {
           & > p {
             z-index: 3;
             display: block;
             position: absolute;
-            top: 10;
             background-color: black;
             color: wheat;
+            margin-top: 10px;
+            margin-left: 16px;
           }
         }
       }

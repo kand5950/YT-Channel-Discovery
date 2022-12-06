@@ -56,17 +56,19 @@
 .container .legend .reccomended .reccomendedChannels {
   display: flex;
   flex-wrap: wrap;
+  position: relative;
 }
 .container .legend .reccomended .channel {
-  margin: 3px;
+  margin: 5px;
 }
 .container .legend .reccomended .channel:hover > p {
   z-index: 3;
   display: block;
   position: absolute;
-  top: 10;
   background-color: black;
   color: wheat;
+  margin-top: 10px;
+  margin-left: 16px;
 }
 .container .legend .reccomended .channel p {
   display: none;
