@@ -7,6 +7,7 @@ import topics from './data/topics';
 
 
 
+
 function App() {
 
   let api_key = process.env.REACT_APP_api_key
@@ -18,12 +19,28 @@ function App() {
 
   return (
     <div className={styles.container}>
-      <button onClick={() => console.log(subs, reccomended, hovered)}>print subs</button>
-      YOUTUBE RECCOMENDED
-      {!subs ? <div><div onClick={() => { login(setSubs, topics, api_key, setChannel) }}>hello</div></div>
-        : <Home subs={subs} hovered={hovered} setHovered={setHovered} topics={topics} channel={channel} reccomended={reccomended} setReccomended={setReccomended} />}
+      {!subs ? <div className={styles.landingpage}>
+        <div 
+          className={styles.landingtitle}>YT Discovery App
+        </div>
+        <button 
+          className={styles.landingbutton} 
+          onClick={() => { login(setSubs, topics, api_key, setChannel) }}>
+            hello
+          </button>
+        </div>
+        : <Home 
+            subs={subs} 
+            hovered={hovered} 
+            setHovered={setHovered} 
+            topics={topics} 
+            channel={channel} 
+            reccomended={reccomended} 
+            setReccomended={setReccomended} 
+          />}
     </div >
   );
 }
+
 
 export default App;
