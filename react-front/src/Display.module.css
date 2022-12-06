@@ -29,9 +29,6 @@
   left: 50%;
   transform: translate(-50%, 0);
   margin-top: 10em;
-  height: 102vh;
-  background-color: rgb(253, 162, 162);
-  padding-bottom: 8px;
 }
 .container .dashboard {
   display: flex;
@@ -40,6 +37,7 @@
   height: 96vh;
   width: 95vw;
   margin: 6px;
+  margin-top: 12px;
 }
 .container .legend {
   margin: 1%;
