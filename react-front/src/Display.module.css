@@ -56,6 +56,17 @@
 .container .landingpage .homeImage {
   width: 22%;
 }
+.container .transition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 27em;
+}
+.container .transition .transitionimg {
+  margin-right: 2rem;
+  -webkit-animation: rotate 1s linear infinite;
+          animation: rotate 1s linear infinite;
+}
 .container .dashboard {
   display: flex;
   border: 3px solid black;
@@ -293,4 +304,16 @@
 }
 .display .Sports {
   background-color: rgb(207, 37, 190);
+}
+
+@-webkit-keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=Display.module.css.map */
