@@ -58,6 +58,18 @@
       width: 22%;
     }
   }
+  .transition {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 27em;
+      
+      .transitionimg {
+        margin-right: 2rem;
+        animation: rotate 1s linear infinite;
+      }
+  }
+
   
   .dashboard {
     display: flex;
@@ -295,5 +307,12 @@
   }
   .Sports {
     background-color: rgb(207, 37, 190);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }

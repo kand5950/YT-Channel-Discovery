@@ -7,6 +7,7 @@ import topics from './data/topics';
 import favLogo from './assets/heart.png'
 import ytLogo from './assets/youtube.png'
 import sortLogo from './assets/list.png'
+import Status from './Status';
 
 
 
@@ -19,6 +20,11 @@ function App() {
   const [reccomended, setReccomended] = useState(null);
   const [hovered, setHovered] = useState({ hovering: false });
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    setSubs("loading")
+    login(setSubs, topics, api_key, setChannel)
+  }
   return (
     <div className={styles.container}>
       {!subs ? <div className={styles.landingpage}>
@@ -48,11 +54,11 @@ function App() {
         </div>
         <button
           className={styles.landingbutton}
-          onClick={() => { login(setSubs, topics, api_key, setChannel); }}>
+          onClick={handleClick}>
           Log In
         </button>
       </div>
-        : <Home
+        : subs === "loading" ? <Status /> : <Home
           subs={subs}
           hovered={hovered}
           setHovered={setHovered}
