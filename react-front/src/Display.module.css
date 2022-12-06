@@ -296,27 +296,59 @@
 }
 .display .Gaming {
   background-color: yellow;
+  border-radius: 10px;
+}
+.display .Gaming:hover {
+  box-shadow: 5px 0 11px rgba(33, 33, 33, 0.2);
 }
 .display .Lifestyle {
   background-color: green;
+  border-radius: 10px;
+}
+.display .Lifestyle:hover {
+  box-shadow: 5px 0 11px rgba(33, 33, 33, 0.2);
 }
 .display .Music {
   background-color: red;
+  border-radius: 10px;
+}
+.display .Music:hover {
+  box-shadow: 5px 0 11px rgba(33, 33, 33, 0.2);
 }
 .display .Society {
   background-color: blue;
+  border-radius: 10px;
+}
+.display .Society:hover {
+  box-shadow: 5px 0 11px rgba(33, 33, 33, 0.2);
 }
 .display .Entertainment {
   background-color: orange;
+  border-radius: 10px;
+}
+.display .Entertainment:hover {
+  box-shadow: 5px 0 11px rgba(33, 33, 33, 0.2);
 }
 .display .Technology {
   background-color: rgb(0, 255, 102);
+  border-radius: 10px;
+}
+.display .Technology:hover {
+  box-shadow: 5px 0 11px rgba(33, 33, 33, 0.2);
 }
 .display .Hobby {
   background-color: rgb(193, 193, 193);
+  border-radius: 10px;
+}
+.display .Hobby:hover {
+  box-shadow: 5px 0 11px rgba(33, 33, 33, 0.2);
 }
 .display .Sports {
   background-color: rgb(207, 37, 190);
+  border-radius: 10px;
+}
+.display .Sports:hover {
+  box-shadow: 5px 0 11px rgba(33, 33, 33, 0.2);
 }
 
 @-webkit-keyframes rotate {

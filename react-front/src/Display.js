@@ -35,7 +35,7 @@ export default function Display({ subs, setHovered, reccomendedOrder, reccomende
         return count;
     };
 
-    const colorObject = { Gaming: 'rgb(255, 255, 0)', Lifestyle: 'rgb(0, 128, 0)', Music: 'rgb(255, 0, 0)', Society: 'rgb(0, 0, 255)', Entertainment: 'rgb(255, 165, 0)', Technology: 'rgb(0, 255, 102)', Hobby: 'rgb(193, 193, 193)', Sports: 'rgb(207, 37, 190)' };
+    const colorObject = { Gaming: 'rgb(255, 255, 0)', Lifestyle: 'rgb(0, 128, 0)', Music: 'rgb(255, 0, 0)', Society: 'rgb(0, 0, 255)', Entertainment: 'rgb(255, 165, 0)', Technology: 'rgb(0, 255, 102)', Hobby: 'rgb(193, 193, 193)', Sports: 'rgb(207, 37, 190)', none: 'white' };
 
 
     const data = {
