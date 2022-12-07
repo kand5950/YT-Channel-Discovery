@@ -104,7 +104,9 @@
         width: 7em;
         padding: 3px;
         margin: 4px;
-        box-shadow: 5px 5px 11px rgba(33,33,33,0.5);
+        box-shadow: 5px 5px 11px rgba(33, 33, 33, 0.5);
+        height: 40px;
+        width: 70px;
         &:hover {
           cursor: pointer;
           background-color: green;
@@ -118,7 +120,7 @@
       justify-content: center;
       margin: 0.7em;
       .toggleUser {
-        box-shadow: 5px 5px 11px rgba(33,33,33,0.5);
+        box-shadow: 5px 5px 11px rgba(33, 33, 33, 0.5);
         .userButton {
           cursor: pointer;
           width: 7em;
@@ -143,7 +145,7 @@
       img {
         border-radius: 8px;
         margin-left: 1em;
-        box-shadow: 5px 5px 11px rgba(33,33,33,0.5);
+        box-shadow: 5px 5px 11px rgba(33, 33, 33, 0.5);
       }
       span {
         margin: 1em;
@@ -194,7 +196,6 @@
     flex-wrap: wrap;
   }
   .reccomended {
-    
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -222,7 +223,7 @@
         cursor: pointer;
         border-radius: 17px;
         &:hover {
-          box-shadow: 5px 0 11px rgba(33,33,33,.2);
+          box-shadow: 5px 0 11px rgba(33, 33, 33, 0.2);
         }
       }
       p {
@@ -255,7 +256,7 @@
       height: 25vh;
       text-align: center;
       border: 2px solid black;
-      box-shadow: 5px 5px 11px rgba(33,33,33,0.5);
+      box-shadow: 5px 5px 11px rgba(33, 33, 33, 0.5);
       button {
         display: flex;
         justify-content: center;
@@ -283,7 +284,7 @@
       padding: 5px;
       font-size: 80%;
       width: 6em;
-      box-shadow: 5px 5px 11px rgba(33,33,33,0.5);
+      box-shadow: 5px 5px 11px rgba(33, 33, 33, 0.5);
       &:hover {
         cursor: pointer;
         background-color: green;
