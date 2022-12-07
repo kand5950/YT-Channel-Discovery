@@ -89,35 +89,49 @@
   border: 3px solid white;
 }
 .container .legend .insert {
+  margin: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
   text-align: center;
   margin-right: 20px;
   margin-left: 20px;
 }
-.container .legend .insert div {
-  padding: 5px;
+.container .legend .insert button {
+  width: 7em;
+  padding: 3px;
+  margin: 4px;
+  box-shadow: 5px 5px 11px rgba(33, 33, 33, 0.5);
 }
-.container .legend .insert div:hover {
+.container .legend .insert button:hover {
   cursor: pointer;
   background-color: green;
+  border-color: green;
 }
 .container .legend header {
   display: flex;
   padding: 5px;
   justify-content: center;
+  margin: 0.7em;
+}
+.container .legend header .toggleUser {
+  box-shadow: 5px 5px 11px rgba(33, 33, 33, 0.5);
 }
 .container .legend header .toggleUser .userButton {
+  cursor: pointer;
   width: 7em;
-  background-color: white;
 }
 .container .legend header .toggleUser .userButton.on {
   background-color: green;
+  border-color: green;
 }
 .container .legend header .toggleUser .hoverButton {
+  cursor: pointer;
   width: 7em;
-  background-color: white;
 }
 .container .legend header .toggleUser .hoverButton.on {
   background-color: green;
+  border-color: green;
 }
 .container .legend .legendSection {
   word-wrap: break-word;
@@ -126,6 +140,7 @@
 .container .legend .legendSection img {
   border-radius: 8px;
   margin-left: 1em;
+  box-shadow: 5px 5px 11px rgba(33, 33, 33, 0.5);
 }
 .container .legend .legendSection span {
   margin: 1em;
@@ -235,18 +250,19 @@
   height: 25vh;
   text-align: center;
   border: 2px solid black;
+  box-shadow: 5px 5px 11px rgba(33, 33, 33, 0.5);
 }
-.display .usercolumn .user div {
+.display .usercolumn .user button {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: green;
 }
-.display .usercolumn .user div:hover {
+.display .usercolumn .user button:hover {
   cursor: pointer;
-  background-color: wheat;
+  background-color: green;
+  border-color: green;
 }
 .display .insert {
   width: 8%;
@@ -259,15 +275,17 @@
   height: fit-content;
   padding: 10px;
 }
-.display .insert div {
+.display .insert button {
   margin-top: 5px;
-  background-color: green;
   padding: 5px;
   font-size: 80%;
+  width: 6em;
+  box-shadow: 5px 5px 11px rgba(33, 33, 33, 0.5);
 }
-.display .insert div:hover {
+.display .insert button:hover {
   cursor: pointer;
-  background-color: wheat;
+  background-color: green;
+  border-color: green;
 }
 .display .subcolumn {
   display: flex;

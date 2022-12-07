@@ -92,14 +92,22 @@
     overflow: scroll;
     border: 3px solid white;
     .insert {
+      margin: 1.5em;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
       text-align: center;
       margin-right: 20px;
       margin-left: 20px;
-      div {
-        padding: 5px;
+      button {
+        width: 7em;
+        padding: 3px;
+        margin: 4px;
+        box-shadow: 5px 5px 11px rgba(33,33,33,0.5);
         &:hover {
           cursor: pointer;
           background-color: green;
+          border-color: green;
         }
       }
     }
@@ -107,19 +115,23 @@
       display: flex;
       padding: 5px;
       justify-content: center;
+      margin: 0.7em;
       .toggleUser {
+        box-shadow: 5px 5px 11px rgba(33,33,33,0.5);
         .userButton {
+          cursor: pointer;
           width: 7em;
-          background-color: white;
           &.on {
             background-color: green;
+            border-color: green;
           }
         }
         .hoverButton {
+          cursor: pointer;
           width: 7em;
-          background-color: white;
           &.on {
             background-color: green;
+            border-color: green;
           }
         }
       }
@@ -130,6 +142,7 @@
       img {
         border-radius: 8px;
         margin-left: 1em;
+        box-shadow: 5px 5px 11px rgba(33,33,33,0.5);
       }
       span {
         margin: 1em;
@@ -241,16 +254,17 @@
       height: 25vh;
       text-align: center;
       border: 2px solid black;
-      div {
+      box-shadow: 5px 5px 11px rgba(33,33,33,0.5);
+      button {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
         height: 100%;
-        background-color: green;
         &:hover {
           cursor: pointer;
-          background-color: wheat;
+          background-color: green;
+          border-color: green;
         }
       }
     }
@@ -263,14 +277,16 @@
     text-align: center;
     height: fit-content;
     padding: 10px;
-    div {
+    button {
       margin-top: 5px;
-      background-color: green;
       padding: 5px;
       font-size: 80%;
+      width: 6em;
+      box-shadow: 5px 5px 11px rgba(33,33,33,0.5);
       &:hover {
         cursor: pointer;
-        background-color: wheat;
+        background-color: green;
+        border-color: green;
       }
     }
   }
