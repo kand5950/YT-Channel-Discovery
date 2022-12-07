@@ -118,6 +118,7 @@
   box-shadow: 5px 5px 11px rgba(33, 33, 33, 0.5);
 }
 .container .legend header .toggleUser .userButton {
+  cursor: pointer;
   width: 7em;
 }
 .container .legend header .toggleUser .userButton.on {
@@ -125,6 +126,7 @@
   border-color: green;
 }
 .container .legend header .toggleUser .hoverButton {
+  cursor: pointer;
   width: 7em;
 }
 .container .legend header .toggleUser .hoverButton.on {
