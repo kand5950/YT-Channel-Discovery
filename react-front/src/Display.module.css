@@ -148,6 +148,12 @@
 .container .legend .legendSection span {
   margin: 1em;
 }
+.container .legend .imgAndTitle {
+  display: flex;
+  justify-content: flex-start;
+  vertical-align: top;
+  font-weight: bold;
+}
 .container .legend .subName {
   vertical-align: top;
 }
