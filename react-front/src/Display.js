@@ -83,10 +83,10 @@ export default function Display({ subs, setHovered, reccomendedOrder, reccomende
                             />
                         </div>
                         <div className={styles.user}>
-                            {!reccomended && <button onClick={() => {
+                            {!reccomended && <button className={styles.setReccomended} onClick={() => {
                                 setReccomendedSet(subs, setReccomended)
                             }}>Set Reccomended</button>}
-                            {reccomended && <button onClick={() => {
+                            {reccomended && <button className={styles.viewReccomended} onClick={() => {
                                 setReccomendedOrder([...reccomended])
                             }}>View Reccomended</button>}
                         </div>

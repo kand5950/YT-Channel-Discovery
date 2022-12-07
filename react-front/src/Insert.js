@@ -66,11 +66,12 @@ export default function Insert({ subs, setOrderedSubs, reccomended }) {
     return (
         <div className={styles.insert}>
             <button onClick={() => orderSubs('default')}>Default</button>
-            <button onClick={() => orderSubs('subscriber-count')}>By Subs</button>
-            {reccomended && <button onClick={() => orderSubs('by-duplicate')}>By Duplicates</button>}
             <button onClick={() => orderSubs('by-category')}>By Category</button>
+            <button onClick={() => orderSubs('subscriber-count')}>By Subs</button>
             {reccomended && <button onClick={() => orderSubs('by-creator')}>By Creator</button>}
+            {reccomended && <button onClick={() => orderSubs('by-duplicate')}>By Duplicates</button>}
             {reccomended && <button onClick={() => orderSubs('reset')}>Back to Subs</button>}
+
         </div>
     )
 }

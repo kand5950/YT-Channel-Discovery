@@ -27,8 +27,6 @@ function App() {
   }
   return (
     <div className={styles.container}>
-      <button onClick={() => console.log(subs, reccomended, hovered)}>print subs</button>
-
       {!subs ? <div className={styles.landingpage}>
         <div
           className={styles.landingtitle}>
