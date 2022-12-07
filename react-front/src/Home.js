@@ -48,7 +48,7 @@ export default function Home({ subs, hovered, setHovered, topics, channel, recco
                                         })}
                                     </div>
                                     <div>
-                                        <p>Subbed to/Reccomended by:</p>
+                                        <p><b>Subbed to/Reccomended by:</b></p>
                                         {hovered.from && hovered.from}
                                     </div>
                                     <div className={styles.reccomended}>
