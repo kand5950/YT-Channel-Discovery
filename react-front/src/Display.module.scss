@@ -104,9 +104,12 @@
         width: 7.5em;
         padding: 3px;
         margin: 4px;
-        box-shadow: 5px 5px 11px rgba(33, 33, 33, 0.5);
+        box-shadow: 2px 2px 5px rgba(33, 33, 33, 0.5);
         min-width: 75px;
         min-height: 35px;
+        &:last-of-type {
+          border: 2px solid black;
+        }
         &:hover {
           cursor: pointer;
           background-color: rgb(132, 206, 132);
@@ -278,12 +281,15 @@
     text-align: center;
     height: fit-content;
     padding: 10px;
+    height: 140px;
     button {
       margin-top: 5px;
       padding: 5px;
       font-size: 80%;
       width: 6em;
-      box-shadow: 5px 5px 11px rgba(33, 33, 33, 0.5);
+      box-shadow: 2px 2px 2px rgba(33, 33, 33, 0.5);
+      min-width: 75px;
+      min-height: 35px;
       &:hover {
         cursor: pointer;
         background-color: rgb(132, 206, 132);
