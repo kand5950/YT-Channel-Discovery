@@ -100,14 +100,14 @@
       margin-right: 20px;
       margin-left: 20px;
       button {
-        width: 7em;
+        width: 7.5em;
         padding: 3px;
         margin: 4px;
         box-shadow: 5px 5px 11px rgba(33,33,33,0.5);
         &:hover {
           cursor: pointer;
-          background-color: green;
-          border-color: green;
+          background-color: rgb(132, 206, 132);
+          border-color: rgb(132, 206, 132);
         }
       }
     }
@@ -122,16 +122,16 @@
           cursor: pointer;
           width: 7em;
           &.on {
-            background-color: green;
-            border-color: green;
+            background-color: rgb(132, 206, 132);
+            border-color: rgb(132, 206, 132);
           }
         }
         .hoverButton {
           cursor: pointer;
           width: 7em;
           &.on {
-            background-color: green;
-            border-color: green;
+            background-color: rgb(132, 206, 132);
+            border-color: rgb(132, 206, 132);
           }
         }
       }
@@ -253,7 +253,7 @@
     .user {
       height: 25vh;
       text-align: center;
-      border: 2px solid black;
+      border: 1px solid black;
       box-shadow: 5px 5px 11px rgba(33,33,33,0.5);
       button {
         display: flex;
@@ -263,8 +263,8 @@
         height: 100%;
         &:hover {
           cursor: pointer;
-          background-color: green;
-          border-color: green;
+          background-color: rgb(132, 206, 132);
+          border-color: rgb(132, 206, 132);
         }
       }
     }
@@ -285,8 +285,8 @@
       box-shadow: 5px 5px 11px rgba(33,33,33,0.5);
       &:hover {
         cursor: pointer;
-        background-color: green;
-        border-color: green;
+        background-color: rgb(132, 206, 132);
+        border-color: rgb(132, 206, 132);
       }
     }
   }
