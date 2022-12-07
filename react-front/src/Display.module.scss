@@ -204,8 +204,12 @@
       transition: 0.1s;
       img {
         width: 110px;
-        border: 2px solid white;
+        border: 2px solid rgb(153, 135, 135);
         cursor: pointer;
+        border-radius: 17px;
+        &:hover {
+          box-shadow: 5px 0 11px rgba(33,33,33,.2);
+        }
       }
       p {
         max-height: 40px;
