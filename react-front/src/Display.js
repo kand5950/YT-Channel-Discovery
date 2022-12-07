@@ -6,7 +6,6 @@ import SubItem from './SubItem';
 import { useRef } from 'react';
 import { Pie, getElementsAtEvent } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import topics from './data/topics';
 import setReccomendedSet from './helper/setReccomended';
 ChartJS.register(ArcElement, Tooltip, Legend);
 

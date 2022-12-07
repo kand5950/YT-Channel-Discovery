@@ -58,7 +58,7 @@ function App() {
           <div className="g-sign-in-button">
             <div className="content-wrapper">
               <div className="logo-wrapper">
-                <img src="https://developers.google.com/identity/images/g-logo.png"></img>
+                <img src="https://developers.google.com/identity/images/g-logo.png" alt='google logo'></img>
               </div>
               <span className="text-container">
                 <span>Sign in with Google</span>

@@ -1,5 +1,3 @@
-import { hover } from "@testing-library/user-event/dist/hover"
-import { formToJSON } from "axios"
 import { useState } from "react"
 import Display from "./Display"
 import styles from './Display.module.css'
