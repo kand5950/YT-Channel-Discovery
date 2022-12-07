@@ -12,12 +12,13 @@ export default function reccomendedItem({ classname, subs, setHovered, hoverTogg
     const subscriptions = subs?.subscriptions || ['none']
     const reccomendedChannels = subs?.channels || ['none']
     const from = subs?.snippet.from
+    const url = 'https://youtube.com/' + subs.snippet.customUrl
 
     return (
         <div className={classname} onMouseOver={() => {
             if (hoverToggle) setHovered({
                 thumbnail, title, subCount, videoCount, description,
-                subscriptions, reccomendedChannels, categories,
+                subscriptions, reccomendedChannels, categories, url,
                 from, hovering: true
             })
         }} onClick={() => { setToggleHover(prev => !prev) }}>

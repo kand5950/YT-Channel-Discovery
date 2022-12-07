@@ -1,4 +1,3 @@
-import { formToJSON } from "axios"
 import { useState } from "react"
 import Display from "./Display"
 import styles from './Display.module.css'
@@ -29,7 +28,7 @@ export default function Home({ subs, hovered, setHovered, topics, channel, recco
                         {reccomendedOrder && <Insert subs={reccomended} setOrderedSubs={setReccomendedOrder} reccomended />}
                         {hovered.hovering ?
                             <div className={styles.legendSection}>
-                                <img src={hovered.thumbnail} alt='' />
+                                <a href={hovered.url} target='_blank' rel="noreferrer"> <img src={hovered.thumbnail} alt='' /></a>
                                 <span className={styles.subName}>{hovered.title}</span>
                                 <div className={styles.subInfo}>
                                     <p>{hovered.description}</p>

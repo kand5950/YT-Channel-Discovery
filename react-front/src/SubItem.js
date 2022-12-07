@@ -11,12 +11,13 @@ export default function SubItem({ classname, subs, setHovered, hoverToggle, setT
     const categories = subs.topicDetails?.topicIds || ['none']
     const subscriptions = subs?.subscriptions || ['none']
     const reccomendedChannels = subs?.channels || ['none']
+    const url = 'https://youtube.com/' + subs.snippet.customUrl
 
     return (
         <div className={classname} onMouseOver={() => {
             if (hoverToggle) setHovered({
                 thumbnail, title, subCount, videoCount, description,
-                subscriptions, reccomendedChannels, categories, hovering: true
+                subscriptions, reccomendedChannels, categories, url, hovering: true
             })
         }} onClick={() => { setToggleHover(prev => !prev) }}>
             <div className={styles.default}>
