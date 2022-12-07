@@ -103,6 +103,8 @@
   padding: 3px;
   margin: 4px;
   box-shadow: 5px 5px 11px rgba(33, 33, 33, 0.5);
+  height: 40px;
+  width: 70px;
 }
 .container .legend .insert button:hover {
   cursor: pointer;
