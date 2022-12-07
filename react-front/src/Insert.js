@@ -71,7 +71,6 @@ export default function Insert({ subs, setOrderedSubs, reccomended }) {
             <button onClick={() => orderSubs('by-category')}>By Category</button>
             {reccomended && <button onClick={() => orderSubs('by-creator')}>By Creator</button>}
             {reccomended && <button onClick={() => orderSubs('reset')}>Back to Subs</button>}
-
         </div>
     )
 }
