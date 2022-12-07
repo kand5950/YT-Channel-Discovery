@@ -103,8 +103,8 @@
   padding: 3px;
   margin: 4px;
   box-shadow: 5px 5px 11px rgba(33, 33, 33, 0.5);
-  width: 75px;
-  height: 35px;
+  min-width: 75px;
+  min-height: 35px;
 }
 .container .legend .insert button:hover {
   cursor: pointer;
@@ -116,9 +116,6 @@
   padding: 5px;
   justify-content: center;
   margin: 0.7em;
-}
-.container .legend header .toggleUser {
-  box-shadow: 5px 5px 11px rgba(33, 33, 33, 0.5);
 }
 .container .legend header .toggleUser .userButton {
   cursor: pointer;
