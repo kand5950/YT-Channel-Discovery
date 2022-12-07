@@ -28,8 +28,10 @@ export default function Home({ subs, hovered, setHovered, topics, channel, recco
                         {reccomendedOrder && <Insert subs={reccomended} setOrderedSubs={setReccomendedOrder} reccomended />}
                         {hovered.hovering ?
                             <div className={styles.legendSection}>
-                                <a href={hovered.url} target='_blank' rel="noreferrer"> <img src={hovered.thumbnail} alt='' /></a>
+                              <div className={styles.imgAndTitle}>
+                                <a href={hovered.url} target='_blank' rel="noreferrer"> <img src={hovered.thumbnail} alt='' /></a>   
                                 <span className={styles.subName}>{hovered.title}</span>
+                                </div>
                                 <div className={styles.subInfo}>
                                     <p>{hovered.description}</p>
                                     <b>Subscriber count: </b>{hovered.subCount > 1000000 ? hovered.subCount / 1000000 + 'M' : hovered.subCount > 1000 && hovered.subCount < 1000000 ? hovered.subCount / 1000 + 'K' : hovered.subCount}
