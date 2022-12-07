@@ -1,3 +1,4 @@
+import { hover } from "@testing-library/user-event/dist/hover"
 import { formToJSON } from "axios"
 import { useState } from "react"
 import Display from "./Display"
@@ -29,7 +30,7 @@ export default function Home({ subs, hovered, setHovered, topics, channel, recco
                         {reccomendedOrder && <Insert subs={reccomended} setOrderedSubs={setReccomendedOrder} reccomended />}
                         {hovered.hovering ?
                             <div className={styles.legendSection}>
-                                <img src={hovered.thumbnail} alt='' />
+                                <a href={hovered.url}> <img src={hovered.thumbnail} alt='' /></a>
                                 <span className={styles.subName}>{hovered.title}</span>
                                 <div className={styles.subInfo}>
                                     <p>{hovered.description}</p>

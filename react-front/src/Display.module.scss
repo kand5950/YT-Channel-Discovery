@@ -4,6 +4,7 @@
   align-items: center;
   width: 100%;
   height: 100vh;
+  padding-bottom: 8px;
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)),
     url("./assets/bgpic.jpg");
   .landingpage {
@@ -301,56 +302,56 @@
     background-color: yellow;
     border-radius: 10px;
     &:hover {
-      box-shadow: 5px 0 11px rgba(33,33,33,.2);
+      box-shadow: 5px 0 11px rgba(33, 33, 33, 0.2);
     }
   }
   .Lifestyle {
     background-color: green;
     border-radius: 10px;
     &:hover {
-      box-shadow: 5px 0 11px rgba(33,33,33,.2);
+      box-shadow: 5px 0 11px rgba(33, 33, 33, 0.2);
     }
   }
   .Music {
     background-color: red;
     border-radius: 10px;
     &:hover {
-      box-shadow: 5px 0 11px rgba(33,33,33,.2);
+      box-shadow: 5px 0 11px rgba(33, 33, 33, 0.2);
     }
   }
   .Society {
     background-color: blue;
     border-radius: 10px;
     &:hover {
-      box-shadow: 5px 0 11px rgba(33,33,33,.2);
+      box-shadow: 5px 0 11px rgba(33, 33, 33, 0.2);
     }
   }
   .Entertainment {
     background-color: orange;
     border-radius: 10px;
     &:hover {
-      box-shadow: 5px 0 11px rgba(33,33,33,.2);
+      box-shadow: 5px 0 11px rgba(33, 33, 33, 0.2);
     }
   }
   .Technology {
     background-color: rgb(0, 255, 102);
     border-radius: 10px;
     &:hover {
-      box-shadow: 5px 0 11px rgba(33,33,33,.2);
+      box-shadow: 5px 0 11px rgba(33, 33, 33, 0.2);
     }
   }
   .Hobby {
     background-color: rgb(193, 193, 193);
     border-radius: 10px;
     &:hover {
-      box-shadow: 5px 0 11px rgba(33,33,33,.2);
+      box-shadow: 5px 0 11px rgba(33, 33, 33, 0.2);
     }
   }
   .Sports {
     background-color: rgb(207, 37, 190);
     border-radius: 10px;
     &:hover {
-      box-shadow: 5px 0 11px rgba(33,33,33,.2);
+      box-shadow: 5px 0 11px rgba(33, 33, 33, 0.2);
     }
   }
 }

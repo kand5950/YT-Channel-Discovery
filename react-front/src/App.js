@@ -27,10 +27,12 @@ function App() {
   }
   return (
     <div className={styles.container}>
+      <button onClick={() => console.log(subs, reccomended, hovered)}>print subs</button>
+
       {!subs ? <div className={styles.landingpage}>
         <div
           className={styles.landingtitle}>
-            <h1>YT Discovery App</h1>
+          <h1>YT Discovery App</h1>
         </div>
         <div className={styles.middleContainer}>
           <img className={styles.homeImage} src='https://developers.google.com/static/youtube/images/youtube_home_page_player_api.png' alt=''></img>
@@ -38,32 +40,32 @@ function App() {
         </div>
         <h2 className={styles.featureTitle}><center>Our Features</center></h2>
         <div className={styles.lowerContainer}>
-          <ul> 
-          <p><img className={styles.icon} src={ytLogo} alt=""></img></p>
-          <p><img className={styles.icon} src={favLogo} alt=""></img></p>
-          <p><img className={styles.icon} src={sortLogo} alt=""></img></p>
+          <ul>
+            <p><img className={styles.icon} src={ytLogo} alt=""></img></p>
+            <p><img className={styles.icon} src={favLogo} alt=""></img></p>
+            <p><img className={styles.icon} src={sortLogo} alt=""></img></p>
           </ul>
           <ul>
-          <h3>View your channel statistics</h3>
-          <p>Check out your subscriber counts, view counts and videos! </p>
-          <h3>Filter your subscription list by categories</h3>
-          <p>What category is your favorite?</p>
-          <h3>View your favorite channels' recommended channels and subscriptions</h3>
-          <p>Discover unique content creators based on your interests!</p>
+            <h3>View your channel statistics</h3>
+            <p>Check out your subscriber counts, view counts and videos! </p>
+            <h3>Filter your subscription list by categories</h3>
+            <p>What category is your favorite?</p>
+            <h3>View your favorite channels' recommended channels and subscriptions</h3>
+            <p>Discover unique content creators based on your interests!</p>
           </ul>
         </div>
         <div className="sign-in" onClick={handleClick}>
-        <div className="g-sign-in-button">
-          <div className="content-wrapper">
-            <div className="logo-wrapper">
-              <img src="https://developers.google.com/identity/images/g-logo.png"></img>
+          <div className="g-sign-in-button">
+            <div className="content-wrapper">
+              <div className="logo-wrapper">
+                <img src="https://developers.google.com/identity/images/g-logo.png"></img>
+              </div>
+              <span className="text-container">
+                <span>Sign in with Google</span>
+              </span>
             </div>
-            <span className="text-container">
-              <span>Sign in with Google</span>
-            </span>
           </div>
         </div>
-    </div>
       </div>
         : subs === "loading" ? <Status /> : <Home
           subs={subs}
