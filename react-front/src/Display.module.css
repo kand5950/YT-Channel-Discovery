@@ -99,7 +99,7 @@
   margin-left: 20px;
 }
 .container .legend .insert button {
-  width: 7em;
+  width: 7.5em;
   padding: 3px;
   margin: 4px;
   box-shadow: 5px 5px 11px rgba(33, 33, 33, 0.5);
@@ -108,8 +108,8 @@
 }
 .container .legend .insert button:hover {
   cursor: pointer;
-  background-color: green;
-  border-color: green;
+  background-color: rgb(132, 206, 132);
+  border-color: rgb(132, 206, 132);
 }
 .container .legend header {
   display: flex;
@@ -125,16 +125,16 @@
   width: 7em;
 }
 .container .legend header .toggleUser .userButton.on {
-  background-color: green;
-  border-color: green;
+  background-color: rgb(132, 206, 132);
+  border-color: rgb(132, 206, 132);
 }
 .container .legend header .toggleUser .hoverButton {
   cursor: pointer;
   width: 7em;
 }
 .container .legend header .toggleUser .hoverButton.on {
-  background-color: green;
-  border-color: green;
+  background-color: rgb(132, 206, 132);
+  border-color: rgb(132, 206, 132);
 }
 .container .legend .legendSection {
   word-wrap: break-word;
@@ -252,7 +252,7 @@
 .display .usercolumn .user {
   height: 25vh;
   text-align: center;
-  border: 2px solid black;
+  border: 1px solid black;
   box-shadow: 5px 5px 11px rgba(33, 33, 33, 0.5);
 }
 .display .usercolumn .user button {
@@ -264,8 +264,8 @@
 }
 .display .usercolumn .user button:hover {
   cursor: pointer;
-  background-color: green;
-  border-color: green;
+  background-color: rgb(132, 206, 132);
+  border-color: rgb(132, 206, 132);
 }
 .display .insert {
   width: 8%;
@@ -287,8 +287,8 @@
 }
 .display .insert button:hover {
   cursor: pointer;
-  background-color: green;
-  border-color: green;
+  background-color: rgb(132, 206, 132);
+  border-color: rgb(132, 206, 132);
 }
 .display .subcolumn {
   display: flex;
