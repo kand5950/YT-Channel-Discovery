@@ -6,9 +6,9 @@ The app was built as a final project for the lighthouse Labs Web Development Dip
 
 # Final Project
 
-!["Landing Page"]()
-!["Home Page where user subscription info is"]()
-!["Recommended Page"]()
+!["Landing Page"](https://github.com/kand5950/YT-Channel-Discovery/blob/main/react-front/src/assets/landing-page.png)
+!["Home Page where user subscription info is"](https://github.com/kand5950/YT-Channel-Discovery/blob/main/react-front/src/assets/home-page.png)
+!["Recommended Page"](https://github.com/kand5950/YT-Channel-Discovery/blob/main/react-front/src/assets/recommended-page.png)
 
 
 # Install dependencies:
